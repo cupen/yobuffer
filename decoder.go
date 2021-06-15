@@ -1,7 +1,7 @@
 package yobuffer
 
 // Decoder ...
-type Decoder interface {
+type IDecoder interface {
 	Int8([]byte) int8
 	Int16([]byte) int16
 	Int32([]byte) int32

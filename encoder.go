@@ -1,14 +1,14 @@
 package yobuffer
 
 // Encoder ...
-type Encoder interface {
-	Int8(int8, []byte)
-	Int16(int16, []byte)
-	Int32(int32, []byte)
-	Int64(int64, []byte)
+type IEncoder interface {
+	Int8([]byte, int8)
+	Int16([]byte, int16)
+	Int32([]byte, int32)
+	Int64([]byte, int64)
 
-	UInt8(uint8, []byte)
-	UInt16(uint16, []byte)
-	UInt32(uint32, []byte)
-	UInt64(uint64, []byte)
+	UInt8([]byte, uint8)
+	UInt16([]byte, uint16)
+	UInt32([]byte, uint32)
+	UInt64([]byte, uint64)
 }

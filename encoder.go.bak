@@ -1,0 +1,14 @@
+package yobuffer
+
+// Encoder ...
+type Encoder interface {
+	WriteInt8([]byte, int8)
+	WriteInt16([]byte, int16)
+	WriteInt32([]byte, int32)
+	WriteInt64([]byte, int64)
+
+	WriteUInt8([]byte, uint8)
+	WriteUInt16([]byte, uint16)
+	WriteUInt32([]byte, uint32)
+	WriteUInt64([]byte, uint64)
+}

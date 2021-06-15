@@ -3,8 +3,12 @@ package tiny
 // Encoder ...
 type Encoder struct{}
 
-func (enc *Encoder) Int8(b *byte, v int8) error {
-	*b = byte(v)
+func newEncoder() *Encoder {
+	return &Encoder{}
+}
+
+func (enc *Encoder) Int8(b []byte, v int8) error {
+	b[0] = byte(v)
 	return nil
 }
 
@@ -37,19 +41,19 @@ func (enc *Encoder) Int64(b []byte, v int64) error {
 	return nil
 }
 
-func (enc *Encoder) UInt8(b *byte, v uint8) error {
-	*b = byte(v)
+func (enc *Encoder) UInt8(b []byte, v uint8) error {
+	b[0] = byte(v)
 	return nil
 }
 
-func (enc *Encoder) UInt16(b []byte, v int16) error {
+func (enc *Encoder) UInt16(b []byte, v uint16) error {
 	_ = b[1]
 	b[0] = byte(v)
 	b[1] = byte(v >> 8)
 	return nil
 }
 
-func (enc *Encoder) UInt32(b []byte, v int32) error {
+func (enc *Encoder) UInt32(b []byte, v uint32) error {
 	_ = b[3]
 	b[0] = byte(v)
 	b[1] = byte(v >> 8)
@@ -58,7 +62,7 @@ func (enc *Encoder) UInt32(b []byte, v int32) error {
 	return nil
 }
 
-func (enc *Encoder) UInt64(b []byte, v int64) error {
+func (enc *Encoder) UInt64(b []byte, v uint64) error {
 	_ = b[7]
 	b[0] = byte(v)
 	b[1] = byte(v >> 8)
@@ -71,6 +75,22 @@ func (enc *Encoder) UInt64(b []byte, v int64) error {
 	return nil
 }
 
-func (enc *Encoder) Bytes(b []byte, v []byte) error {
-	*b = append(*b, []byte{})
+func (enc *Encoder) Bytes(b *[]byte, v []byte) error {
+	*b = append(*b, v...)
+	return nil
+}
+
+func (enc *Encoder) String(b *[]byte, v string) error {
+	_v := []byte(v)
+	l := len(_v)
+
+	sb := make([]byte, 4)
+	sb[0] = byte(l)
+	sb[1] = byte(l >> 8)
+	sb[2] = byte(l >> 16)
+	sb[3] = byte(l >> 24)
+
+	sb = append(sb, v...)
+	*b = append(*b, sb...)
+	return nil
 }

@@ -25,7 +25,7 @@
             "name": "GetPlayerInfo",
             "in" : [
                 {
-                    "type": "string"
+                    "type": "string",
                     "name": "userId"
                 }
             ],
@@ -39,33 +39,3 @@
         }
     ]
 }
-
-// 结构体定义
-struct PlayerInfo {
-    string  userId  = 1;
-    string  name    = 2;
-    string  avatar  = 3;
-    int64   shortId = 4;
-    int16   level   = 5;
-    float64 winRate = 6;
-    bool    isAdmin = 7;
-    vint64  hello   = 8; // 一种变长 int 
-}
-
-enum Color : byte {
-    Red = 1;
-    Green = 2;
-    Blue =3;
-}
-
-
-// 全局 rate 限制
-global_rate(50/s, 100/m, 1000/h, 10000/d)
-
-
-@meta(id=10001, desc="获取玩家信息", rate=60/m)
-rpc GetPlayerInfo(userId:string) (PlayerInfo)
-
-
-@meta(id=22001, desc="发送聊天信息", rate=10/m)
-rpc SendChatMessage(userId:string) (void)

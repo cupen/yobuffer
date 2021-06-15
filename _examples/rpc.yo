@@ -25,9 +25,5 @@ global_rate(50/s, 100/m, 1000/h, 10000/d)
 rpc GetPlayerInfo() (PlayerInfo)
 
 
-@meta(id=10002, desc="获取其它玩家信息", rate=60/m)
-rpc GetOtherPlayerInfo() (PlayerInfo)
-
-
 @meta(id=22001, desc="发送聊天信息", rate=10/m)
 rpc SendChatMessage(userId string) (void)
