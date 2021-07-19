@@ -2,7 +2,7 @@ package tiny
 
 type Decoder struct{}
 
-func newDecoder() *Decoder {
+func NewDecoder() *Decoder {
 	return &Decoder{}
 }
 
@@ -47,4 +47,13 @@ func (dec *Decoder) UInt64(b []byte) uint64 {
 		uint64(b[2])<<16 | uint64(b[3])<<24 |
 		uint64(b[4])<<32 | uint64(b[5])<<40 |
 		uint64(b[6])<<48 | uint64(b[7])<<56
+}
+
+func (dec *Decoder) Bool(b []byte) bool {
+	return b[0] == 1
+}
+
+func (dec *Decoder) String(b []byte) string {
+	l := dec.UInt32(b)
+	return string(b[3:l])
 }

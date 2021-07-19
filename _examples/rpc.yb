@@ -1,3 +1,5 @@
+package rpc
+
 // 结构体定义
 @meta(encoding=tiny)
 struct PlayerInfo {
@@ -10,11 +12,11 @@ struct PlayerInfo {
     bool    isAdmin = 7;
 }
 
-enum Color : byte {
-    Red = 1;
-    Green = 2;
-    Blue =3;
-}
+// enum Color : byte {
+//     Red = 1;
+//    Green = 2;
+//    Blue =3;
+// }
 
 // 全局 rate 限制
 global_rate(50/s, 100/m, 1000/h, 10000/d)

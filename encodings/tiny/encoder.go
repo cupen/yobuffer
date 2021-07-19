@@ -3,7 +3,7 @@ package tiny
 // Encoder ...
 type Encoder struct{}
 
-func newEncoder() *Encoder {
+func NewEncoder() *Encoder {
 	return &Encoder{}
 }
 
@@ -80,17 +80,21 @@ func (enc *Encoder) Bytes(b *[]byte, v []byte) error {
 	return nil
 }
 
-func (enc *Encoder) String(b *[]byte, v string) error {
-	_v := []byte(v)
-	l := len(_v)
+func (enc *Encoder) Bool(b []byte, v bool) error {
+	var _v byte = 0
+	if v {
+		_v = 1
+	}
+	b[0] = _v
+	return nil
+}
 
-	sb := make([]byte, 4)
-	sb[0] = byte(l)
-	sb[1] = byte(l >> 8)
-	sb[2] = byte(l >> 16)
-	sb[3] = byte(l >> 24)
-
-	sb = append(sb, v...)
-	*b = append(*b, sb...)
+func (enc *Encoder) String(b []byte, v string) error {
+	l := len(v)
+	b[0] = byte(l)
+	b[1] = byte(l >> 8)
+	b[2] = byte(l >> 16)
+	b[3] = byte(l >> 24)
+	copy(b[4:], v)
 	return nil
 }
