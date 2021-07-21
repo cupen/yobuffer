@@ -19,3 +19,6 @@ type StructField struct {
 type Meta struct {
 	Fields map[string]string
 }
+
+type RPC struct {
+}

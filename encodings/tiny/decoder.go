@@ -1,5 +1,7 @@
 package tiny
 
+import "math"
+
 type Decoder struct{}
 
 func NewDecoder() *Decoder {
@@ -55,5 +57,15 @@ func (dec *Decoder) Bool(b []byte) bool {
 
 func (dec *Decoder) String(b []byte) string {
 	l := dec.UInt32(b)
-	return string(b[3:l])
+	return string(b[4 : 4+l])
+}
+
+func (dec *Decoder) Float32(b []byte) float32 {
+	v := dec.UInt32(b)
+	return math.Float32frombits(v)
+}
+
+func (dec *Decoder) Float64(b []byte) float64 {
+	v := dec.UInt64(b)
+	return math.Float64frombits(v)
 }

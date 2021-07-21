@@ -1,7 +1,7 @@
 package rpc
 
 // 结构体定义
-@meta(encoding=tiny)
+@meta(id=10001, desc="玩家信息", encoding=tiny)
 struct PlayerInfo {
     string  userId  = 1;
     string  name    = 2;
@@ -32,3 +32,11 @@ rpc GetOtherPlayerInfo(playerId:string, showLevel:int32) (PlayerInfo)
 
 @meta(id=22001, desc="发送聊天信息", rate=10/m)
 rpc SendChatMessage(userId:string) (void)
+
+// }
+// rpc Info {
+//    args {
+//        string UserID  = 1;
+//    }
+//    retrun PlayerInfo
+// }

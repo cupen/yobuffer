@@ -1,5 +1,9 @@
 package tiny
 
+import (
+	"math"
+)
+
 // Encoder ...
 type Encoder struct{}
 
@@ -91,10 +95,21 @@ func (enc *Encoder) Bool(b []byte, v bool) error {
 
 func (enc *Encoder) String(b []byte, v string) error {
 	l := len(v)
-	b[0] = byte(l)
-	b[1] = byte(l >> 8)
-	b[2] = byte(l >> 16)
-	b[3] = byte(l >> 24)
+	// b[0] = byte(l)
+	// b[1] = byte(l >> 8)
+	// b[2] = byte(l >> 16)
+	// b[3] = byte(l >> 24)
+	enc.UInt32(b, uint32(l))
 	copy(b[4:], v)
+	return nil
+}
+
+func (enc *Encoder) Float32(b []byte, v float32) error {
+	enc.UInt32(b, math.Float32bits(v))
+	return nil
+}
+
+func (enc *Encoder) Float64(b []byte, v float64) error {
+	enc.UInt64(b, math.Float64bits(v))
 	return nil
 }

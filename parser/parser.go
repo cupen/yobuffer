@@ -35,7 +35,7 @@ func New() *idlParser {
 		lexer: lexmachine.NewLexer(),
 	}
 	lexer := obj.lexer
-	lexer.Add([]byte("\\s*//[^\n]*\n+"), obj.actionSkip)
+	lexer.Add([]byte("\\s*//[^\n]*\n*"), obj.actionSkip)
 	lexer.Add([]byte("package \\w+\n+"), obj.tokenBeginPackage)
 	lexer.Add([]byte("\\s*@meta\\([^\n]*\\)\n+"), obj.tokenMeta)
 	lexer.Add([]byte("\\s*global_\\w+\\([^\n]+\\)\n+"), obj.tokenGlobal)
@@ -48,54 +48,6 @@ func New() *idlParser {
 		panic(err)
 	}
 	return obj
-}
-
-func (this *idlParser) getFieldsMap() map[string]struct{} {
-	if this.states._fields == nil {
-		this.states._fields = map[string]struct{}{}
-	}
-	return this.states._fields
-}
-
-func (this *idlParser) receiveStruct(begin *StructBegin, field *StructField, end *StructEnd) error {
-	state := &this.states
-	if begin != nil {
-		if state._struct != nil {
-			return fmt.Errorf("'%s' is not ended", state._struct)
-		}
-		state._struct = &models.Struct{Name: begin.Name}
-	}
-
-	if field != nil {
-		if state._struct == nil {
-			return ErrNoStructDefined
-		}
-
-		fields := this.getFieldsMap()
-		if _, ok := fields[field.Name]; ok {
-			return fmt.Errorf("duplicated field")
-		}
-
-		f := models.Field{
-			Name:   field.Name,
-			Type:   field.Type,
-			Offset: field.Offset,
-		}
-		state._struct.Fields = append(state._struct.Fields, &f)
-		fields[field.Name] = struct{}{}
-	}
-
-	if end != nil {
-		if state._struct == nil {
-			return ErrNoStructDefined
-		}
-		if err := this.ctx.DefineStruct(state._struct); err != nil {
-			return err
-		}
-		state._struct = nil
-		state._fields = nil
-	}
-	return nil
 }
 
 func (this *idlParser) receiveTokens(token interface{}) error {
@@ -114,6 +66,9 @@ func (this *idlParser) receiveTokens(token interface{}) error {
 	case *StructEnd:
 		return this.receiveStruct(nil, nil, tk)
 	case *Meta:
+		return this.receiveMeta(tk)
+	case *RPC:
+		this.states.meta = nil
 		return nil
 	default:
 		return fmt.Errorf("invalid token: %v", reflect.TypeOf(token))
@@ -138,6 +93,7 @@ func (this *idlParser) Parse(data []byte) (*models.Context, error) {
 		}
 		if err := this.receiveTokens(token); err != nil {
 			log.Printf("fail: receive token:%+v failed. err:%v", reflect.TypeOf(token), err)
+			return nil, err
 		}
 	}
 	return c, nil
@@ -202,7 +158,7 @@ func (this *idlParser) tokenStructEnd(s *lexmachine.Scanner, m *machines.Match) 
 
 func (this *idlParser) tokenRPC(s *lexmachine.Scanner, m *machines.Match) (interface{}, error) {
 	show("rpc", s, m)
-	return nil, nil
+	return &RPC{}, nil
 }
 
 func (this *idlParser) tokenStructFields(s *lexmachine.Scanner, m *machines.Match) (interface{}, error) {
@@ -237,4 +193,83 @@ func trim(s []byte) []byte {
 }
 func trims(s string) string {
 	return strings.Trim(s, " \t\n")
+}
+
+func (this *idlParser) getFieldsMap() map[string]struct{} {
+	if this.states._fields == nil {
+		this.states._fields = map[string]struct{}{}
+	}
+	return this.states._fields
+}
+
+func (this *idlParser) receiveMeta(meta *Meta) error {
+	if this.states.meta != nil {
+		return fmt.Errorf("invalid meta")
+	}
+	this.states.meta = &models.Meta{
+		Fields: meta.Fields,
+	}
+	return nil
+}
+
+func (this *idlParser) receiveStruct(begin *StructBegin, field *StructField, end *StructEnd) error {
+	state := &this.states
+	if begin != nil {
+		if state.meta == nil {
+			return fmt.Errorf("missing meta for struct '%s'", begin.Name)
+		}
+		if state._struct != nil {
+			return fmt.Errorf("'%s' is not ended", state._struct)
+		}
+		id, err := state.meta.GetInt("id")
+		if err != nil {
+			return fmt.Errorf("meta.id %w", err)
+		}
+		desc, err := state.meta.GetString("desc")
+		if err != nil {
+			return fmt.Errorf("meta.id %w", err)
+		}
+		encodingName, err := state.meta.GetString("encoding")
+		if err != nil {
+			return fmt.Errorf("meta.encoding %w", err)
+		}
+		state._struct = &models.Struct{
+			ID:       id,
+			Name:     begin.Name,
+			Desc:     desc,
+			Encoding: encodingName,
+		}
+	}
+
+	if field != nil {
+		if state._struct == nil {
+			return ErrNoStructDefined
+		}
+
+		fields := this.getFieldsMap()
+		if _, ok := fields[field.Name]; ok {
+			return fmt.Errorf("duplicated field")
+		}
+
+		f := models.Field{
+			Name:   field.Name,
+			Type:   field.Type,
+			Offset: field.Offset,
+		}
+		state._struct.Fields = append(state._struct.Fields, &f)
+		fields[field.Name] = struct{}{}
+	}
+
+	if end != nil {
+		if state._struct == nil {
+			return ErrNoStructDefined
+		}
+		if err := this.ctx.DefineStruct(state._struct); err != nil {
+			return err
+		}
+		state._struct = nil
+		state._fields = nil
+		state.meta = nil
+	}
+	return nil
 }
