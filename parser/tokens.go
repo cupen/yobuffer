@@ -21,4 +21,10 @@ type Meta struct {
 }
 
 type RPC struct {
+	Name   string
+	Fields []*StructField
+	Return string
+}
+type ExternalStruct struct {
+	Name string
 }

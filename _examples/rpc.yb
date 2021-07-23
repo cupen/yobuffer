@@ -12,26 +12,36 @@ struct PlayerInfo {
     bool    isAdmin = 7;
 }
 
+// 外部结构体定义(用于引用外部 IDL 如 protobuf 的定义)
+@meta(id=10002)
+external struct PlayerInfo
+
+
+@meta(id=10003, desc="作为RPC参数", encoding=tiny)
+struct PlayerID {
+    string  userId  = 1;
+}
+
 // enum Color : byte {
 //     Red = 1;
-//    Green = 2;
-//    Blue =3;
+//     Green = 2;
+//     Blue =3;
 // }
 
 // 全局 rate 限制
 global_rate(50/s, 100/m, 1000/h, 10000/d)
 
 
-@meta(id=10001, desc="获取玩家信息", rate=60/m)
+@meta(id=20001, desc="获取玩家信息", rate=60/m)
 rpc GetPlayerInfo() (PlayerInfo)
 
 
-@meta(id=10002, desc="获取玩家信息", rate=60/m)
-rpc GetOtherPlayerInfo(playerId:string, showLevel:int32) (PlayerInfo)
+@meta(id=20002, desc="获取玩家信息", rate=60/m)
+rpc GetOtherPlayerInfo(id:PlayerID) (PlayerInfo)
 
 
-@meta(id=22001, desc="发送聊天信息", rate=10/m)
-rpc SendChatMessage(userId:string) (void)
+@meta(id=20003, desc="发送聊天信息", rate=10/m)
+rpc SendChatMessage(id:PlayerID) (void)
 
 // }
 // rpc Info {
