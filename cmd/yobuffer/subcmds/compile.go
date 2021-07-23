@@ -1,6 +1,7 @@
 package subcmds
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -37,6 +38,9 @@ func Compile() *cli.Command {
 			files, err := filepath.Glob(src)
 			if err != nil {
 				return err
+			}
+			if len(files) <= 0 {
+				return fmt.Errorf("no files")
 			}
 			for _, f := range files {
 				log.Printf("%s found", f)

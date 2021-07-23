@@ -24,6 +24,12 @@ func init() {
 	}
 }
 
+{{ range $es := .GetExternalStructs -}}
+// external struct {{ $es.Name }} with id {{ $es.ID }}
+type ExternalStruct{{ $es.Name }} {{ $es.Name }}
+{{ end }}
+
+
 {{ range $_, $ := .Structs -}}
 // {{ $.Name }} {{ $.Desc }}
 type {{ $.Name }} struct {
@@ -47,7 +53,7 @@ func (t *{{$.Name}}) Size() (size int) {
 	return
 }
 
-func (t *{{$.Name}}) MarshalYB() ([]byte, error) {
+func (t *{{$.Name}}) Marshal() ([]byte, error) {
 	dAtA := make([]byte, t.Size())
 	i := 0
 {{- range $f := $.Fields }}
@@ -112,8 +118,9 @@ func (t *{{$.Name}}) MarshalYB() ([]byte, error) {
 	return dAtA, nil
 }
 
-func (t *{{$.Name}}) UnmarshalYB(dAtA []byte) error {
+func (t *{{$.Name}}) Unmarshal(dAtA []byte) error {
 	i := 0
+	_ = i
 {{- range $f := $.Fields }}
 	// {{$f.Name}}<{{$f.Type}}>
 	{{- $fieldSize := $f.GetSizeFixed }}
@@ -174,4 +181,98 @@ func (t *{{$.Name}}) UnmarshalYB(dAtA []byte) error {
 
 }
 {{ end -}}
+
+{{ $pkgname := title .Package }}
+{{ $RPCInterface := (print $pkgname  "API") }}
+{{ $RPCStruct := (print $pkgname "Session") }}
+
+// ==================
+//     Define RPC 
+// ==================
+{{ define "ReturnType" -}}
+	{{- if .HasReturn -}}
+		error
+	{{- else -}}
+		({{ .Return  }}, error)
+	{{- end -}}
+{{- end -}}
+
+
+{{ define "byte2object" -}}
+	{{- if $.HasArg -}}
+		_arg := {{ $.Arg.Name }}{}
+		err := _arg.Unmarshal(arg)
+	{{- else -}}
+		({{ $.Return }}, error)
+	{{- end -}}
+{{- end -}}
+
+
+
+// {{$RPCInterface}} ...
+type {{$RPCInterface}} interface {
+{{- range $ := .GetRPCList }}
+	// {{ $.Desc }}
+	// (
+		{{- range $arg := $.Args -}}
+		{{$arg.Name}} {{$arg.Type}},
+		{{- end -}}
+	) 
+	{{$.Name}}(
+		{{- if $.HasArg -}}
+		*{{ $.Arg.Type }}
+		{{- end -}}
+	) 
+		{{- if $.HasReturn -}}
+		(*{{ $.Return }}, error)
+		{{- else -}}
+		{{print " error" }}
+		{{- end }}
+	{{ end }}
+}
+
+func New{{ $RPCStruct }}(instance {{ $RPCInterface }}) *{{ $RPCStruct }} {
+	return &{{ $RPCStruct }} {
+		instance: instance,
+	}
+}
+
+type {{ $RPCStruct }} struct {
+	instance {{ $RPCInterface }}
+}
+
+// OnCall ...
+func (s *{{ $RPCStruct }}) OnCall(methodId uint16, args []byte) ([]byte, error) {
+	api := s.instance
+	if api == nil {
+		return nil, fmt.Errorf("missing RPC instance")
+	}
+
+	switch methodId {
+{{- range $ := .GetRPCList }}
+	case {{ $.ID }}:
+		{{ if $.HasArg -}}
+		msg := {{$.Arg.Type}}{}
+		if err := msg.Unmarshal(args); err != nil {
+			return nil, err
+		}
+		resp, err := api.{{$.Name}}(&msg)
+
+		{{ else -}}
+		resp, err := api.{{$.Name}}()
+		{{ end -}}
+		if err != nil {
+			return nil, err
+		}
+		return resp.Marshal()
+{{ end }}
+	default:
+		return nil, fmt.Errorf("missing method id:%d args:%v", methodId, args)
+	}
+}
+
+// OnSend ...
+func (s *{{ $RPCStruct }}) OnSend(methodId uint16, args []byte) error {
+	return nil
+}
 `
