@@ -1,3 +1,5 @@
-install:
-	go build -o ./main cmd/yobuffer/main.go
-	sudo mv ./main  /usr/local/bin/yobuffer
+build:
+	go build -o ./yobuffer cmd/yobuffer/main.go
+
+install: 
+	mv ./yobuffer  /usr/local/bin/yobuffer

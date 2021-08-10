@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	structs     map[int]reflect.Type
+	structs map[int]reflect.Type
 	tinyEncoder = tiny.NewEncoder()
 	tinyDecoder = tiny.NewDecoder()
 )
@@ -17,9 +17,9 @@ var (
 func init() {
 	structs = map[int]reflect.Type{
 		0: reflect.TypeOf(&void{}),
-
+	
 		10001: reflect.TypeOf(&PlayerInfo{}),
-
+	
 		10003: reflect.TypeOf(&PlayerID{}),
 	}
 }
@@ -27,8 +27,11 @@ func init() {
 // external struct PlayerInfo with id 10002
 type ExternalStructPlayerInfo PlayerInfo
 
-// void
+
+
+// void 
 type void struct {
+	
 }
 
 func (t *void) Size() (size int) {
@@ -50,16 +53,16 @@ func (t *void) Unmarshal(dAtA []byte) error {
 	return nil
 
 }
-
 // PlayerInfo "玩家信息"
 type PlayerInfo struct {
-	UserId  string  `yobuffer:"1"`
-	Name    string  `yobuffer:"2"`
-	Avatar  string  `yobuffer:"3"`
-	ShortId int64   `yobuffer:"4"`
-	Level   int16   `yobuffer:"5"`
+	UserId string `yobuffer:"1"`
+	Name string `yobuffer:"2"`
+	Avatar string `yobuffer:"3"`
+	ShortId int64 `yobuffer:"4"`
+	Level int16 `yobuffer:"5"`
 	WinRate float64 `yobuffer:"6"`
-	IsAdmin bool    `yobuffer:"7"`
+	IsAdmin bool `yobuffer:"7"`
+	
 }
 
 func (t *PlayerInfo) Size() (size int) {
@@ -85,15 +88,15 @@ func (t *PlayerInfo) Marshal() ([]byte, error) {
 	i := 0
 	// UserId<string>
 	tinyEncoder.String(dAtA[i:], t.UserId)
-	i += 4 + len(t.UserId)
+	i += 4+len(t.UserId)
 
 	// Name<string>
 	tinyEncoder.String(dAtA[i:], t.Name)
-	i += 4 + len(t.Name)
+	i += 4+len(t.Name)
 
 	// Avatar<string>
 	tinyEncoder.String(dAtA[i:], t.Avatar)
-	i += 4 + len(t.Avatar)
+	i += 4+len(t.Avatar)
 
 	// ShortId<int64>
 	tinyEncoder.Int64(dAtA[i:], t.ShortId)
@@ -122,15 +125,15 @@ func (t *PlayerInfo) Unmarshal(dAtA []byte) error {
 	_ = i
 	// UserId<string>
 	t.UserId = tinyDecoder.String(dAtA[i:])
-	i += 4 + len(t.UserId)
+	i += 4+len(t.UserId)
 
 	// Name<string>
 	t.Name = tinyDecoder.String(dAtA[i:])
-	i += 4 + len(t.Name)
+	i += 4+len(t.Name)
 
 	// Avatar<string>
 	t.Avatar = tinyDecoder.String(dAtA[i:])
-	i += 4 + len(t.Avatar)
+	i += 4+len(t.Avatar)
 
 	// ShortId<int64>
 	t.ShortId = tinyDecoder.Int64(dAtA[i:])
@@ -151,10 +154,10 @@ func (t *PlayerInfo) Unmarshal(dAtA []byte) error {
 	return nil
 
 }
-
 // PlayerID "作为RPC参数"
 type PlayerID struct {
 	UserId string `yobuffer:"1"`
+	
 }
 
 func (t *PlayerID) Size() (size int) {
@@ -168,7 +171,7 @@ func (t *PlayerID) Marshal() ([]byte, error) {
 	i := 0
 	// UserId<string>
 	tinyEncoder.String(dAtA[i:], t.UserId)
-	i += 4 + len(t.UserId)
+	i += 4+len(t.UserId)
 
 	if i != len(dAtA) {
 		return nil, fmt.Errorf("invalid data size. expected:%d  actual:%d", len(dAtA), i)
@@ -181,32 +184,36 @@ func (t *PlayerID) Unmarshal(dAtA []byte) error {
 	_ = i
 	// UserId<string>
 	t.UserId = tinyDecoder.String(dAtA[i:])
-	i += 4 + len(t.UserId)
+	i += 4+len(t.UserId)
 
 	return nil
 
 }
 
+
+
+
 // ==================
-//     Define RPC
+//     Define RPC 
 // ==================
 // RpcAPI ...
 type RpcAPI interface {
 	// "获取玩家信息"
-	// ()
-	GetPlayerInfo() (*PlayerInfo, error)
-
+	// () 
+	GetPlayerInfo()(*PlayerInfo, error)
+	
 	// "获取玩家信息"
-	// (id PlayerID,)
-	GetOtherPlayerInfo(*PlayerID) (*PlayerInfo, error)
-
+	// (id PlayerID,) 
+	GetOtherPlayerInfo(*PlayerID)(*PlayerInfo, error)
+	
 	// "发送聊天信息"
-	// (id PlayerID,)
-	SendChatMessage(*PlayerID) (*void, error)
+	// (id PlayerID,) 
+	SendChatMessage(*PlayerID)(*void, error)
+	
 }
 
 func NewRpcSession(instance RpcAPI) *RpcSession {
-	return &RpcSession{
+	return &RpcSession {
 		instance: instance,
 	}
 }

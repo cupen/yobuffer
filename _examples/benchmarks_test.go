@@ -15,13 +15,13 @@ func BenchmarkEncoding(b *testing.B) {
 		WinRate: 95.27,
 		IsAdmin: true,
 	}
-	data, _ := obj.MarshalYB()
+	data, _ := obj.Marshal()
 	size := len(data)
 	b.Run("Encode", func(b *testing.B) {
 		b.SetBytes(int64(size))
 		b.ReportMetric(float64(size), "B/size")
 		for i := 0; i < b.N; i++ {
-			data, err := obj.MarshalYB()
+			data, err := obj.Marshal()
 			if err != nil {
 				b.FailNow()
 			}
@@ -34,7 +34,7 @@ func BenchmarkEncoding(b *testing.B) {
 		b.SetBytes(int64(size))
 		b.ReportMetric(float64(size), "B/size")
 		for i := 0; i < b.N; i++ {
-			err := obj.UnmarshalYB(data)
+			err := obj.Unmarshal(data)
 			if err != nil {
 				b.FailNow()
 			}
