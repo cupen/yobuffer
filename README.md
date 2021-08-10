@@ -1,3 +1,6 @@
+# Introduction
+Hey! yobuffer! No it's your buffer.
+
 # Usage
 
 ```bash
