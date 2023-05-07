@@ -54,57 +54,58 @@ func (t *{{$.Name}}) Size() (size int) {
 }
 
 func (t *{{$.Name}}) Marshal() ([]byte, error) {
+	enc := tiny.GetEncoder()
 	dAtA := make([]byte, t.Size())
 	i := 0
 {{- range $f := $.Fields }}
 	{{- $fieldSize := $f.GetSizeFixed }}
 	// {{$f.Name}}<{{$f.Type}}>
 	{{- if (eq $f.Type "int8") }}
-	tinyEncoder.Int8(dAtA[i:], t.{{$f.Name}})
+	enc.Int8(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "int16") }}
-	tinyEncoder.Int16(dAtA[i:], t.{{$f.Name}})
+	enc.Int16(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "int32") }}
-	tinyEncoder.Int32(dAtA[i:], t.{{$f.Name}})
+	enc.Int32(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "int64") }}
-	tinyEncoder.Int64(dAtA[i:], t.{{$f.Name}})
+	enc.Int64(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint8") }}
-	tinyEncoder.UInt8(dAtA[i:], t.{{$f.Name}})
+	enc.UInt8(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint16") }}
-	tinyEncoder.UInt16(dAtA[i:], t.{{$f.Name}})
+	enc.UInt16(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint32") }}
-	tinyEncoder.UInt32(dAtA[i:], t.{{$f.Name}})
+	enc.UInt32(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint64") }}
-	tinyEncoder.UInt64(dAtA[i:], t.{{$f.Name}})
+	enc.UInt64(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "float32") }}
-	tinyEncoder.Float32(dAtA[i:], t.{{$f.Name}})
+	enc.Float32(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "float64") }}
-	tinyEncoder.Float64(dAtA[i:], t.{{$f.Name}})
+	enc.Float64(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "bool") }}
-	tinyEncoder.Bool(dAtA[i:], t.{{$f.Name}})
+	enc.Bool(dAtA[i:], t.{{$f.Name}})
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "string") }}
-	tinyEncoder.String(dAtA[i:], t.{{$f.Name}})
+	enc.String(dAtA[i:], t.{{$f.Name}})
 	i += 4+len(t.{{$f.Name}})
 
 	{{- else }}
@@ -119,57 +120,58 @@ func (t *{{$.Name}}) Marshal() ([]byte, error) {
 }
 
 func (t *{{$.Name}}) Unmarshal(dAtA []byte) error {
+	dec := tiny.GetDecoder()
 	i := 0
 	_ = i
 {{- range $f := $.Fields }}
 	// {{$f.Name}}<{{$f.Type}}>
 	{{- $fieldSize := $f.GetSizeFixed }}
 	{{- if (eq $f.Type "int8") }}
-	t.{{$f.Name}} = tinyDecoder.Int8(dAtA[i:])
+	t.{{$f.Name}} = dec.Int8(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "int16") }}
-	t.{{$f.Name}} = tinyDecoder.Int16(dAtA[i:])
+	t.{{$f.Name}} = dec.Int16(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "int32") }}
-	t.{{$f.Name}} = tinyDecoder.Int32(dAtA[i:])
+	t.{{$f.Name}} = dec.Int32(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "int64") }}
-	t.{{$f.Name}} = tinyDecoder.Int64(dAtA[i:])
+	t.{{$f.Name}} = dec.Int64(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint8") }}
-	t.{{$f.Name}} = tinyDecoder.UInt8(dAtA[i:])
+	t.{{$f.Name}} = dec.UInt8(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint16") }}
-	t.{{$f.Name}} = tinyDecoder.UInt16(dAtA[i:])
+	t.{{$f.Name}} = dec.UInt16(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint32") }}
-	t.{{$f.Name}} = tinyDecoder.UInt32(dAtA[i:])
+	t.{{$f.Name}} = dec.UInt32(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "uint64") }}
-	t.{{$f.Name}} = tinyDecoder.UInt64(dAtA[i:])
+	t.{{$f.Name}} = dec.UInt64(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "float32") }}
-	t.{{$f.Name}} = tinyDecoder.Float32(dAtA[i:])
+	t.{{$f.Name}} = dec.Float32(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "float64") }}
-	t.{{$f.Name}} = tinyDecoder.Float64(dAtA[i:])
+	t.{{$f.Name}} = dec.Float64(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "bool") }}
-	t.{{$f.Name}} = tinyDecoder.Bool(dAtA[i:])
+	t.{{$f.Name}} = dec.Bool(dAtA[i:])
 	i += {{ $fieldSize }} 
 
 	{{- else if (eq $f.Type "string") }}
-	t.{{$f.Name}} = tinyDecoder.String(dAtA[i:])
+	t.{{$f.Name}} = dec.String(dAtA[i:])
 	i += 4+len(t.{{$f.Name}})
 
 	{{- else }}

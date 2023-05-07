@@ -59,7 +59,7 @@ func (this *Context) DefineRPC(r *RPC) error {
 		return fmt.Errorf("nil struct")
 	}
 	if r.ID <= 0 || r.Name == "" {
-		return fmt.Errorf("invalid RPC(id:%d name:%s) with RPC(id:%d name:%s) ", r.ID, r.Name)
+		return fmt.Errorf("invalid RPC(id:%d name:%s)", r.ID, r.Name)
 	}
 
 	old, ok := this.RPCs[r.ID]
