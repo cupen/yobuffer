@@ -25,7 +25,7 @@ func Compile() *cli.Command {
 			// 	Usage: "destination file or directory",
 			// },
 			// &cli.BoolFlag{
-			// 	Name:  "testcase",
+			// 	Name:  "with-test",
 			// 	Usage: "generate testcases",
 			// },
 		},

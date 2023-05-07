@@ -10,8 +10,6 @@ import (
 
 var (
 	structs map[int]reflect.Type
-	tinyEncoder = tiny.NewEncoder()
-	tinyDecoder = tiny.NewDecoder()
 )
 
 func init() {
@@ -40,18 +38,11 @@ func (t *void) Size() (size int) {
 
 func (t *void) Marshal() ([]byte, error) {
 	dAtA := make([]byte, t.Size())
-	i := 0
-	if i != len(dAtA) {
-		return nil, fmt.Errorf("invalid data size. expected:%d  actual:%d", len(dAtA), i)
-	}
 	return dAtA, nil
 }
 
 func (t *void) Unmarshal(dAtA []byte) error {
-	i := 0
-	_ = i
 	return nil
-
 }
 // PlayerInfo "玩家信息"
 type PlayerInfo struct {
@@ -84,75 +75,76 @@ func (t *PlayerInfo) Size() (size int) {
 }
 
 func (t *PlayerInfo) Marshal() ([]byte, error) {
-	dAtA := make([]byte, t.Size())
+	dAtA := make([]byte, t.Size()) 
+	enc := tiny.GetEncoder()
 	i := 0
 	// UserId<string>
-	tinyEncoder.String(dAtA[i:], t.UserId)
+	enc.String(dAtA[i:], t.UserId)
 	i += 4+len(t.UserId)
-
+	
 	// Name<string>
-	tinyEncoder.String(dAtA[i:], t.Name)
+	enc.String(dAtA[i:], t.Name)
 	i += 4+len(t.Name)
-
+	
 	// Avatar<string>
-	tinyEncoder.String(dAtA[i:], t.Avatar)
+	enc.String(dAtA[i:], t.Avatar)
 	i += 4+len(t.Avatar)
-
+	
 	// ShortId<int64>
-	tinyEncoder.Int64(dAtA[i:], t.ShortId)
+	enc.Int64(dAtA[i:], t.ShortId)
 	i += 8
-
+	
 	// Level<int16>
-	tinyEncoder.Int16(dAtA[i:], t.Level)
+	enc.Int16(dAtA[i:], t.Level)
 	i += 2
-
+	
 	// WinRate<float64>
-	tinyEncoder.Float64(dAtA[i:], t.WinRate)
+	enc.Float64(dAtA[i:], t.WinRate)
 	i += 8
-
+	
 	// IsAdmin<bool>
-	tinyEncoder.Bool(dAtA[i:], t.IsAdmin)
+	enc.Bool(dAtA[i:], t.IsAdmin)
 	i += 1
-
+	
 	if i != len(dAtA) {
 		return nil, fmt.Errorf("invalid data size. expected:%d  actual:%d", len(dAtA), i)
 	}
+
 	return dAtA, nil
 }
 
-func (t *PlayerInfo) Unmarshal(dAtA []byte) error {
+func (t *PlayerInfo) Unmarshal(dAtA []byte) error { 
+	dec := tiny.GetDecoder()
 	i := 0
-	_ = i
 	// UserId<string>
-	t.UserId = tinyDecoder.String(dAtA[i:])
+	t.UserId = dec.String(dAtA[i:])
 	i += 4+len(t.UserId)
-
+	
 	// Name<string>
-	t.Name = tinyDecoder.String(dAtA[i:])
+	t.Name = dec.String(dAtA[i:])
 	i += 4+len(t.Name)
-
+	
 	// Avatar<string>
-	t.Avatar = tinyDecoder.String(dAtA[i:])
+	t.Avatar = dec.String(dAtA[i:])
 	i += 4+len(t.Avatar)
-
+	
 	// ShortId<int64>
-	t.ShortId = tinyDecoder.Int64(dAtA[i:])
+	t.ShortId = dec.Int64(dAtA[i:])
 	i += 8
-
+	
 	// Level<int16>
-	t.Level = tinyDecoder.Int16(dAtA[i:])
+	t.Level = dec.Int16(dAtA[i:])
 	i += 2
-
+	
 	// WinRate<float64>
-	t.WinRate = tinyDecoder.Float64(dAtA[i:])
+	t.WinRate = dec.Float64(dAtA[i:])
 	i += 8
-
+	
 	// IsAdmin<bool>
-	t.IsAdmin = tinyDecoder.Bool(dAtA[i:])
+	t.IsAdmin = dec.Bool(dAtA[i:])
 	i += 1
-
+	
 	return nil
-
 }
 // PlayerID "作为RPC参数"
 type PlayerID struct {
@@ -167,27 +159,28 @@ func (t *PlayerID) Size() (size int) {
 }
 
 func (t *PlayerID) Marshal() ([]byte, error) {
-	dAtA := make([]byte, t.Size())
+	dAtA := make([]byte, t.Size()) 
+	enc := tiny.GetEncoder()
 	i := 0
 	// UserId<string>
-	tinyEncoder.String(dAtA[i:], t.UserId)
+	enc.String(dAtA[i:], t.UserId)
 	i += 4+len(t.UserId)
-
+	
 	if i != len(dAtA) {
 		return nil, fmt.Errorf("invalid data size. expected:%d  actual:%d", len(dAtA), i)
 	}
+
 	return dAtA, nil
 }
 
-func (t *PlayerID) Unmarshal(dAtA []byte) error {
+func (t *PlayerID) Unmarshal(dAtA []byte) error { 
+	dec := tiny.GetDecoder()
 	i := 0
-	_ = i
 	// UserId<string>
-	t.UserId = tinyDecoder.String(dAtA[i:])
+	t.UserId = dec.String(dAtA[i:])
 	i += 4+len(t.UserId)
-
+	
 	return nil
-
 }
 
 

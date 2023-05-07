@@ -16,6 +16,9 @@ func BenchmarkEncoding(b *testing.B) {
 		IsAdmin: true,
 	}
 	data, _ := obj.Marshal()
+	if len(data) <= 0 {
+		b.FailNow()
+	}
 	size := len(data)
 	b.Run("Encode", func(b *testing.B) {
 		b.ReportAllocs()
