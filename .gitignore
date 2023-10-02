@@ -1,3 +1,6 @@
 yobuffer
 *exe
 _runtime
+*.interp
+*.tokens
+parser/.antlr/

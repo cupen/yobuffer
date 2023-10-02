@@ -2,6 +2,7 @@ package subcmds
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"path/filepath"
@@ -44,11 +45,14 @@ func Compile() *cli.Command {
 			}
 			for _, f := range files {
 				log.Printf("%s found", f)
-				c, err := parser.Parse(f)
+
+				data, err := readFile(f)
+				p := parser.New()
+				c, err := p.Parse(data)
 				if err != nil {
 					return err
 				}
-				// log.Printf("\t%v err:%v", c, err)
+
 				_destFile := f + ".go"
 				f, err := os.OpenFile(_destFile, os.O_CREATE|os.O_TRUNC|os.O_RDWR, 0755)
 				if err != nil {
@@ -69,4 +73,13 @@ func Compile() *cli.Command {
 			return nil
 		},
 	}
+}
+
+func readFile(fpath string) ([]byte, error) {
+	f, err := os.Open(fpath)
+	if err != nil {
+		return nil, err
+	}
+	return io.ReadAll(f)
+
 }

@@ -28,20 +28,21 @@ struct PlayerID {
 //     Blue =3;
 // }
 
-// 全局 rate 限制
-global_rate(50/s, 100/m, 1000/h, 10000/d)
+// gloabl options
+option(rate1, 50/s)
+option(rate2, 100/m)
+option(rate3, 1000/h)
 
+service GameBackend {
+    @meta(id=20001, desc="获取玩家信息", rate=60/m)
+    rpc GetPlayerInfo() (PlayerInfo)
 
-@meta(id=20001, desc="获取玩家信息", rate=60/m)
-rpc GetPlayerInfo() (PlayerInfo)
+    @meta(id=20002, desc="获取玩家信息", rate=60/m)
+    rpc GetOtherPlayerInfo(id:PlayerID) (PlayerInfo)
 
-
-@meta(id=20002, desc="获取玩家信息", rate=60/m)
-rpc GetOtherPlayerInfo(id:PlayerID) (PlayerInfo)
-
-
-@meta(id=20003, desc="发送聊天信息", rate=10/m)
-rpc SendChatMessage(id:PlayerID) (void)
+    @meta(id=20003, desc="发送聊天信息", rate=10/m)
+    rpc SendChatMessage(id:PlayerID) (void)
+}
 
 // }
 // rpc Info {
