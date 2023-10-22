@@ -1,4 +1,4 @@
-// Code generated from Yobuffer.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from Yobuffer.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // Yobuffer
 import "github.com/antlr4-go/antlr/v4"
@@ -44,12 +44,6 @@ func (s *BaseYobufferListener) EnterMeta(ctx *MetaContext) {}
 // ExitMeta is called when production meta is exited.
 func (s *BaseYobufferListener) ExitMeta(ctx *MetaContext) {}
 
-// EnterMetaName is called when production metaName is entered.
-func (s *BaseYobufferListener) EnterMetaName(ctx *MetaNameContext) {}
-
-// ExitMetaName is called when production metaName is exited.
-func (s *BaseYobufferListener) ExitMetaName(ctx *MetaNameContext) {}
-
 // EnterMetaElement is called when production metaElement is entered.
 func (s *BaseYobufferListener) EnterMetaElement(ctx *MetaElementContext) {}
 
@@ -61,12 +55,6 @@ func (s *BaseYobufferListener) EnterField(ctx *FieldContext) {}
 
 // ExitField is called when production field is exited.
 func (s *BaseYobufferListener) ExitField(ctx *FieldContext) {}
-
-// EnterFieldName is called when production fieldName is entered.
-func (s *BaseYobufferListener) EnterFieldName(ctx *FieldNameContext) {}
-
-// ExitFieldName is called when production fieldName is exited.
-func (s *BaseYobufferListener) ExitFieldName(ctx *FieldNameContext) {}
 
 // EnterFieldTag is called when production fieldTag is entered.
 func (s *BaseYobufferListener) EnterFieldTag(ctx *FieldTagContext) {}
@@ -86,12 +74,6 @@ func (s *BaseYobufferListener) EnterMessage(ctx *MessageContext) {}
 // ExitMessage is called when production message is exited.
 func (s *BaseYobufferListener) ExitMessage(ctx *MessageContext) {}
 
-// EnterMessageName is called when production messageName is entered.
-func (s *BaseYobufferListener) EnterMessageName(ctx *MessageNameContext) {}
-
-// ExitMessageName is called when production messageName is exited.
-func (s *BaseYobufferListener) ExitMessageName(ctx *MessageNameContext) {}
-
 // EnterMessageElement is called when production messageElement is entered.
 func (s *BaseYobufferListener) EnterMessageElement(ctx *MessageElementContext) {}
 
@@ -110,12 +92,6 @@ func (s *BaseYobufferListener) EnterStruct(ctx *StructContext) {}
 // ExitStruct is called when production struct is exited.
 func (s *BaseYobufferListener) ExitStruct(ctx *StructContext) {}
 
-// EnterStructName is called when production structName is entered.
-func (s *BaseYobufferListener) EnterStructName(ctx *StructNameContext) {}
-
-// ExitStructName is called when production structName is exited.
-func (s *BaseYobufferListener) ExitStructName(ctx *StructNameContext) {}
-
 // EnterStructElement is called when production structElement is entered.
 func (s *BaseYobufferListener) EnterStructElement(ctx *StructElementContext) {}
 
@@ -127,12 +103,6 @@ func (s *BaseYobufferListener) EnterService(ctx *ServiceContext) {}
 
 // ExitService is called when production service is exited.
 func (s *BaseYobufferListener) ExitService(ctx *ServiceContext) {}
-
-// EnterServiceName is called when production serviceName is entered.
-func (s *BaseYobufferListener) EnterServiceName(ctx *ServiceNameContext) {}
-
-// ExitServiceName is called when production serviceName is exited.
-func (s *BaseYobufferListener) ExitServiceName(ctx *ServiceNameContext) {}
 
 // EnterServiceElement is called when production serviceElement is entered.
 func (s *BaseYobufferListener) EnterServiceElement(ctx *ServiceElementContext) {}
@@ -146,11 +116,11 @@ func (s *BaseYobufferListener) EnterRpc(ctx *RpcContext) {}
 // ExitRpc is called when production rpc is exited.
 func (s *BaseYobufferListener) ExitRpc(ctx *RpcContext) {}
 
-// EnterRpcName is called when production rpcName is entered.
-func (s *BaseYobufferListener) EnterRpcName(ctx *RpcNameContext) {}
+// EnterRpcField is called when production rpcField is entered.
+func (s *BaseYobufferListener) EnterRpcField(ctx *RpcFieldContext) {}
 
-// ExitRpcName is called when production rpcName is exited.
-func (s *BaseYobufferListener) ExitRpcName(ctx *RpcNameContext) {}
+// ExitRpcField is called when production rpcField is exited.
+func (s *BaseYobufferListener) ExitRpcField(ctx *RpcFieldContext) {}
 
 // EnterConstant is called when production constant is entered.
 func (s *BaseYobufferListener) EnterConstant(ctx *ConstantContext) {}
@@ -163,6 +133,12 @@ func (s *BaseYobufferListener) EnterEmptyStmt(ctx *EmptyStmtContext) {}
 
 // ExitEmptyStmt is called when production emptyStmt is exited.
 func (s *BaseYobufferListener) ExitEmptyStmt(ctx *EmptyStmtContext) {}
+
+// EnterName is called when production name is entered.
+func (s *BaseYobufferListener) EnterName(ctx *NameContext) {}
+
+// ExitName is called when production name is exited.
+func (s *BaseYobufferListener) ExitName(ctx *NameContext) {}
 
 // EnterIdent is called when production ident is entered.
 func (s *BaseYobufferListener) EnterIdent(ctx *IdentContext) {}

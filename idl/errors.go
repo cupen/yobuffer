@@ -1,4 +1,4 @@
-package parser
+package idl
 
 import (
 	"fmt"

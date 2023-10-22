@@ -3,4 +3,4 @@ yobuffer
 _runtime
 *.interp
 *.tokens
-parser/.antlr/
+.antlr/

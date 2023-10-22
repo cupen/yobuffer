@@ -20,6 +20,12 @@ type StructField struct {
 	Tag  int
 }
 
+type Field struct {
+	Name string
+	Type string
+	Tag  int
+}
+
 type ExternalStruct struct {
 	Name string
 }

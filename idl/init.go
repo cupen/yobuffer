@@ -1,4 +1,4 @@
-package parser
+package idl
 
 //go:generate antlr4 -Dlanguage=Go -visitor -listener -package parser Yobuffer.g4
 

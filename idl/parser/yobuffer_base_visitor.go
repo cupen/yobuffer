@@ -1,4 +1,4 @@
-// Code generated from Yobuffer.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from Yobuffer.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // Yobuffer
 import "github.com/antlr4-go/antlr/v4"
@@ -23,19 +23,11 @@ func (v *BaseYobufferVisitor) VisitMeta(ctx *MetaContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseYobufferVisitor) VisitMetaName(ctx *MetaNameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseYobufferVisitor) VisitMetaElement(ctx *MetaElementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseYobufferVisitor) VisitField(ctx *FieldContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseYobufferVisitor) VisitFieldName(ctx *FieldNameContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -51,10 +43,6 @@ func (v *BaseYobufferVisitor) VisitMessage(ctx *MessageContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseYobufferVisitor) VisitMessageName(ctx *MessageNameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseYobufferVisitor) VisitMessageElement(ctx *MessageElementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -67,19 +55,11 @@ func (v *BaseYobufferVisitor) VisitStruct(ctx *StructContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseYobufferVisitor) VisitStructName(ctx *StructNameContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseYobufferVisitor) VisitStructElement(ctx *StructElementContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
 func (v *BaseYobufferVisitor) VisitService(ctx *ServiceContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseYobufferVisitor) VisitServiceName(ctx *ServiceNameContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -91,7 +71,7 @@ func (v *BaseYobufferVisitor) VisitRpc(ctx *RpcContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseYobufferVisitor) VisitRpcName(ctx *RpcNameContext) interface{} {
+func (v *BaseYobufferVisitor) VisitRpcField(ctx *RpcFieldContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -100,6 +80,10 @@ func (v *BaseYobufferVisitor) VisitConstant(ctx *ConstantContext) interface{} {
 }
 
 func (v *BaseYobufferVisitor) VisitEmptyStmt(ctx *EmptyStmtContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseYobufferVisitor) VisitName(ctx *NameContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

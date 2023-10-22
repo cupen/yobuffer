@@ -1,4 +1,4 @@
-// Code generated from Yobuffer.g4 by ANTLR 4.13.0. DO NOT EDIT.
+// Code generated from Yobuffer.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // Yobuffer
 import (
@@ -32,127 +32,121 @@ var YobufferParserStaticData struct {
 func yobufferParserInit() {
 	staticData := &YobufferParserStaticData
 	staticData.LiteralNames = []string{
-		"", "'meta'", "'import'", "'package'", "'int8'", "'int16'", "'int32'",
-		"'int64'", "'uint8'", "'uint16'", "'uint32'", "'uint64'", "'bool'",
-		"'string'", "'float32'", "'float64'", "'bytes'", "'message'", "'service'",
-		"'rpc'", "'stream'", "'struct'", "'void'", "'@'", "';'", "'='", "'('",
-		"')'", "'['", "']'", "'{'", "'}'", "'<'", "'>'", "'.'", "','", "':'",
-		"'+'", "'-'",
+		"", "'->'", "'meta'", "'import'", "'package'", "'int8'", "'int16'",
+		"'int32'", "'int64'", "'uint8'", "'uint16'", "'uint32'", "'uint64'",
+		"'bool'", "'string'", "'float32'", "'float64'", "'bytes'", "'message'",
+		"'service'", "'rpc'", "'stream'", "'struct'", "'void'", "'map'", "'list'",
+		"'@'", "';'", "'='", "'('", "')'", "'['", "']'", "'{'", "'}'", "'<'",
+		"'>'", "'.'", "','", "':'", "'+'", "'-'",
 	}
 	staticData.SymbolicNames = []string{
-		"", "META", "IMPORT", "PACKAGE", "INT8", "INT16", "INT32", "INT64",
+		"", "", "META", "IMPORT", "PACKAGE", "INT8", "INT16", "INT32", "INT64",
 		"UINT8", "UINT16", "UINT32", "UINT64", "BOOL", "STRING", "FLOAT32",
 		"FLOAT64", "BYTES", "MESSAGE", "SERVICE", "RPC", "STREAM", "STRUCT",
-		"VOID", "AT", "END", "EQ", "LP", "RP", "LB", "RB", "LC", "RC", "LT",
-		"GT", "DOT", "COMMA", "COLON", "PLUS", "MINUS", "STRING_VALUE", "BOOL_VALUE",
-		"FLOAT_VALUE", "INT_VALUE", "IDENTIFIER", "WHITESPACE", "COMMENT",
+		"VOID", "MAP", "LIST", "AT", "END", "EQ", "LP", "RP", "LB", "RB", "LC",
+		"RC", "LT", "GT", "DOT", "COMMA", "COLON", "PLUS", "MINUS", "NEWLINE",
+		"STRING_VALUE", "BOOL_VALUE", "FLOAT_VALUE", "INT_VALUE", "IDENTIFIER",
+		"WHITESPACE", "COMMENT",
 	}
 	staticData.RuleNames = []string{
-		"schema", "packageStmt", "importStmt", "meta", "metaName", "metaElement",
-		"field", "fieldName", "fieldTag", "fieldType", "message", "messageName",
-		"messageElement", "messageType", "struct", "structName", "structElement",
-		"service", "serviceName", "serviceElement", "rpc", "rpcName", "constant",
-		"emptyStmt", "ident", "fullIdent", "keywords",
+		"schema", "packageStmt", "importStmt", "meta", "metaElement", "field",
+		"fieldTag", "fieldType", "message", "messageElement", "messageType",
+		"struct", "structElement", "service", "serviceElement", "rpc", "rpcField",
+		"constant", "emptyStmt", "name", "ident", "fullIdent", "keywords",
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 45, 228, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 49, 211, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
 		10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 2, 15, 7, 15,
 		2, 16, 7, 16, 2, 17, 7, 17, 2, 18, 7, 18, 2, 19, 7, 19, 2, 20, 7, 20, 2,
-		21, 7, 21, 2, 22, 7, 22, 2, 23, 7, 23, 2, 24, 7, 24, 2, 25, 7, 25, 2, 26,
-		7, 26, 1, 0, 3, 0, 56, 8, 0, 1, 0, 1, 0, 1, 0, 1, 0, 5, 0, 62, 8, 0, 10,
-		0, 12, 0, 65, 9, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1,
-		3, 1, 3, 1, 3, 1, 3, 5, 3, 79, 8, 3, 10, 3, 12, 3, 82, 9, 3, 1, 3, 1, 3,
-		1, 3, 1, 4, 1, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 6, 3, 6, 95, 8, 6, 1,
-		6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 7, 1, 7, 1, 8, 1, 8, 1, 9, 1, 9, 1,
-		9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 3, 9, 119, 8,
-		9, 1, 10, 1, 10, 1, 10, 1, 10, 5, 10, 125, 8, 10, 10, 10, 12, 10, 128,
-		9, 10, 1, 10, 1, 10, 1, 11, 1, 11, 1, 12, 1, 12, 3, 12, 136, 8, 12, 1,
-		13, 3, 13, 139, 8, 13, 1, 13, 1, 13, 1, 13, 5, 13, 144, 8, 13, 10, 13,
-		12, 13, 147, 9, 13, 1, 13, 1, 13, 1, 14, 1, 14, 1, 14, 1, 14, 5, 14, 155,
-		8, 14, 10, 14, 12, 14, 158, 9, 14, 1, 14, 1, 14, 1, 15, 1, 15, 1, 16, 1,
-		16, 3, 16, 166, 8, 16, 1, 17, 1, 17, 1, 17, 1, 17, 5, 17, 172, 8, 17, 10,
-		17, 12, 17, 175, 9, 17, 1, 17, 1, 17, 1, 18, 1, 18, 1, 19, 1, 19, 3, 19,
-		183, 8, 19, 1, 20, 1, 20, 1, 20, 1, 20, 1, 20, 1, 20, 1, 20, 1, 20, 3,
-		20, 193, 8, 20, 1, 20, 1, 20, 1, 21, 1, 21, 1, 22, 1, 22, 3, 22, 201, 8,
-		22, 1, 22, 1, 22, 3, 22, 205, 8, 22, 1, 22, 1, 22, 1, 22, 3, 22, 210, 8,
-		22, 1, 23, 1, 23, 1, 24, 1, 24, 3, 24, 216, 8, 24, 1, 25, 1, 25, 1, 25,
-		5, 25, 221, 8, 25, 10, 25, 12, 25, 224, 9, 25, 1, 26, 1, 26, 1, 26, 0,
-		0, 27, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34,
-		36, 38, 40, 42, 44, 46, 48, 50, 52, 0, 2, 1, 0, 37, 38, 2, 0, 2, 19, 22,
-		22, 235, 0, 55, 1, 0, 0, 0, 2, 66, 1, 0, 0, 0, 4, 70, 1, 0, 0, 0, 6, 74,
-		1, 0, 0, 0, 8, 86, 1, 0, 0, 0, 10, 88, 1, 0, 0, 0, 12, 94, 1, 0, 0, 0,
-		14, 102, 1, 0, 0, 0, 16, 104, 1, 0, 0, 0, 18, 118, 1, 0, 0, 0, 20, 120,
-		1, 0, 0, 0, 22, 131, 1, 0, 0, 0, 24, 135, 1, 0, 0, 0, 26, 138, 1, 0, 0,
-		0, 28, 150, 1, 0, 0, 0, 30, 161, 1, 0, 0, 0, 32, 165, 1, 0, 0, 0, 34, 167,
-		1, 0, 0, 0, 36, 178, 1, 0, 0, 0, 38, 182, 1, 0, 0, 0, 40, 184, 1, 0, 0,
-		0, 42, 196, 1, 0, 0, 0, 44, 209, 1, 0, 0, 0, 46, 211, 1, 0, 0, 0, 48, 215,
-		1, 0, 0, 0, 50, 217, 1, 0, 0, 0, 52, 225, 1, 0, 0, 0, 54, 56, 3, 2, 1,
-		0, 55, 54, 1, 0, 0, 0, 55, 56, 1, 0, 0, 0, 56, 63, 1, 0, 0, 0, 57, 62,
-		3, 4, 2, 0, 58, 62, 3, 6, 3, 0, 59, 62, 3, 20, 10, 0, 60, 62, 3, 34, 17,
-		0, 61, 57, 1, 0, 0, 0, 61, 58, 1, 0, 0, 0, 61, 59, 1, 0, 0, 0, 61, 60,
-		1, 0, 0, 0, 62, 65, 1, 0, 0, 0, 63, 61, 1, 0, 0, 0, 63, 64, 1, 0, 0, 0,
-		64, 1, 1, 0, 0, 0, 65, 63, 1, 0, 0, 0, 66, 67, 5, 3, 0, 0, 67, 68, 3, 50,
-		25, 0, 68, 69, 5, 24, 0, 0, 69, 3, 1, 0, 0, 0, 70, 71, 5, 2, 0, 0, 71,
-		72, 5, 39, 0, 0, 72, 73, 5, 24, 0, 0, 73, 5, 1, 0, 0, 0, 74, 75, 5, 23,
-		0, 0, 75, 76, 5, 1, 0, 0, 76, 80, 5, 30, 0, 0, 77, 79, 3, 10, 5, 0, 78,
-		77, 1, 0, 0, 0, 79, 82, 1, 0, 0, 0, 80, 78, 1, 0, 0, 0, 80, 81, 1, 0, 0,
-		0, 81, 83, 1, 0, 0, 0, 82, 80, 1, 0, 0, 0, 83, 84, 5, 31, 0, 0, 84, 85,
-		5, 24, 0, 0, 85, 7, 1, 0, 0, 0, 86, 87, 3, 48, 24, 0, 87, 9, 1, 0, 0, 0,
-		88, 89, 3, 8, 4, 0, 89, 90, 5, 25, 0, 0, 90, 91, 3, 44, 22, 0, 91, 92,
-		5, 24, 0, 0, 92, 11, 1, 0, 0, 0, 93, 95, 3, 6, 3, 0, 94, 93, 1, 0, 0, 0,
-		94, 95, 1, 0, 0, 0, 95, 96, 1, 0, 0, 0, 96, 97, 3, 18, 9, 0, 97, 98, 3,
-		14, 7, 0, 98, 99, 5, 25, 0, 0, 99, 100, 3, 16, 8, 0, 100, 101, 5, 24, 0,
-		0, 101, 13, 1, 0, 0, 0, 102, 103, 3, 48, 24, 0, 103, 15, 1, 0, 0, 0, 104,
-		105, 5, 42, 0, 0, 105, 17, 1, 0, 0, 0, 106, 119, 5, 4, 0, 0, 107, 119,
-		5, 5, 0, 0, 108, 119, 5, 6, 0, 0, 109, 119, 5, 7, 0, 0, 110, 119, 5, 8,
-		0, 0, 111, 119, 5, 9, 0, 0, 112, 119, 5, 10, 0, 0, 113, 119, 5, 11, 0,
-		0, 114, 119, 5, 12, 0, 0, 115, 119, 5, 13, 0, 0, 116, 119, 5, 16, 0, 0,
-		117, 119, 3, 26, 13, 0, 118, 106, 1, 0, 0, 0, 118, 107, 1, 0, 0, 0, 118,
-		108, 1, 0, 0, 0, 118, 109, 1, 0, 0, 0, 118, 110, 1, 0, 0, 0, 118, 111,
-		1, 0, 0, 0, 118, 112, 1, 0, 0, 0, 118, 113, 1, 0, 0, 0, 118, 114, 1, 0,
-		0, 0, 118, 115, 1, 0, 0, 0, 118, 116, 1, 0, 0, 0, 118, 117, 1, 0, 0, 0,
-		119, 19, 1, 0, 0, 0, 120, 121, 5, 17, 0, 0, 121, 122, 3, 22, 11, 0, 122,
-		126, 5, 30, 0, 0, 123, 125, 3, 24, 12, 0, 124, 123, 1, 0, 0, 0, 125, 128,
-		1, 0, 0, 0, 126, 124, 1, 0, 0, 0, 126, 127, 1, 0, 0, 0, 127, 129, 1, 0,
-		0, 0, 128, 126, 1, 0, 0, 0, 129, 130, 5, 31, 0, 0, 130, 21, 1, 0, 0, 0,
-		131, 132, 3, 48, 24, 0, 132, 23, 1, 0, 0, 0, 133, 136, 3, 12, 6, 0, 134,
-		136, 3, 20, 10, 0, 135, 133, 1, 0, 0, 0, 135, 134, 1, 0, 0, 0, 136, 25,
-		1, 0, 0, 0, 137, 139, 5, 34, 0, 0, 138, 137, 1, 0, 0, 0, 138, 139, 1, 0,
-		0, 0, 139, 145, 1, 0, 0, 0, 140, 141, 3, 48, 24, 0, 141, 142, 5, 34, 0,
-		0, 142, 144, 1, 0, 0, 0, 143, 140, 1, 0, 0, 0, 144, 147, 1, 0, 0, 0, 145,
-		143, 1, 0, 0, 0, 145, 146, 1, 0, 0, 0, 146, 148, 1, 0, 0, 0, 147, 145,
-		1, 0, 0, 0, 148, 149, 3, 22, 11, 0, 149, 27, 1, 0, 0, 0, 150, 151, 5, 21,
-		0, 0, 151, 152, 3, 30, 15, 0, 152, 156, 5, 30, 0, 0, 153, 155, 3, 32, 16,
-		0, 154, 153, 1, 0, 0, 0, 155, 158, 1, 0, 0, 0, 156, 154, 1, 0, 0, 0, 156,
-		157, 1, 0, 0, 0, 157, 159, 1, 0, 0, 0, 158, 156, 1, 0, 0, 0, 159, 160,
-		5, 31, 0, 0, 160, 29, 1, 0, 0, 0, 161, 162, 3, 48, 24, 0, 162, 31, 1, 0,
-		0, 0, 163, 166, 3, 12, 6, 0, 164, 166, 3, 28, 14, 0, 165, 163, 1, 0, 0,
-		0, 165, 164, 1, 0, 0, 0, 166, 33, 1, 0, 0, 0, 167, 168, 5, 18, 0, 0, 168,
-		169, 3, 36, 18, 0, 169, 173, 5, 30, 0, 0, 170, 172, 3, 38, 19, 0, 171,
-		170, 1, 0, 0, 0, 172, 175, 1, 0, 0, 0, 173, 171, 1, 0, 0, 0, 173, 174,
-		1, 0, 0, 0, 174, 176, 1, 0, 0, 0, 175, 173, 1, 0, 0, 0, 176, 177, 5, 31,
-		0, 0, 177, 35, 1, 0, 0, 0, 178, 179, 3, 48, 24, 0, 179, 37, 1, 0, 0, 0,
-		180, 183, 3, 40, 20, 0, 181, 183, 3, 46, 23, 0, 182, 180, 1, 0, 0, 0, 182,
-		181, 1, 0, 0, 0, 183, 39, 1, 0, 0, 0, 184, 185, 5, 19, 0, 0, 185, 186,
-		3, 42, 21, 0, 186, 187, 5, 26, 0, 0, 187, 188, 3, 26, 13, 0, 188, 189,
-		5, 27, 0, 0, 189, 192, 5, 36, 0, 0, 190, 193, 3, 26, 13, 0, 191, 193, 5,
-		22, 0, 0, 192, 190, 1, 0, 0, 0, 192, 191, 1, 0, 0, 0, 193, 194, 1, 0, 0,
-		0, 194, 195, 5, 24, 0, 0, 195, 41, 1, 0, 0, 0, 196, 197, 3, 48, 24, 0,
-		197, 43, 1, 0, 0, 0, 198, 210, 3, 50, 25, 0, 199, 201, 7, 0, 0, 0, 200,
-		199, 1, 0, 0, 0, 200, 201, 1, 0, 0, 0, 201, 202, 1, 0, 0, 0, 202, 210,
-		5, 42, 0, 0, 203, 205, 7, 0, 0, 0, 204, 203, 1, 0, 0, 0, 204, 205, 1, 0,
-		0, 0, 205, 206, 1, 0, 0, 0, 206, 210, 5, 41, 0, 0, 207, 210, 5, 39, 0,
-		0, 208, 210, 5, 40, 0, 0, 209, 198, 1, 0, 0, 0, 209, 200, 1, 0, 0, 0, 209,
-		204, 1, 0, 0, 0, 209, 207, 1, 0, 0, 0, 209, 208, 1, 0, 0, 0, 210, 45, 1,
-		0, 0, 0, 211, 212, 5, 24, 0, 0, 212, 47, 1, 0, 0, 0, 213, 216, 5, 43, 0,
-		0, 214, 216, 3, 52, 26, 0, 215, 213, 1, 0, 0, 0, 215, 214, 1, 0, 0, 0,
-		216, 49, 1, 0, 0, 0, 217, 222, 3, 48, 24, 0, 218, 219, 5, 34, 0, 0, 219,
-		221, 3, 48, 24, 0, 220, 218, 1, 0, 0, 0, 221, 224, 1, 0, 0, 0, 222, 220,
-		1, 0, 0, 0, 222, 223, 1, 0, 0, 0, 223, 51, 1, 0, 0, 0, 224, 222, 1, 0,
-		0, 0, 225, 226, 7, 1, 0, 0, 226, 53, 1, 0, 0, 0, 20, 55, 61, 63, 80, 94,
-		118, 126, 135, 138, 145, 156, 165, 173, 182, 192, 200, 204, 209, 215, 222,
+		21, 7, 21, 2, 22, 7, 22, 1, 0, 3, 0, 48, 8, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+		5, 0, 54, 8, 0, 10, 0, 12, 0, 57, 9, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1,
+		2, 1, 2, 1, 2, 1, 3, 1, 3, 1, 3, 1, 3, 5, 3, 71, 8, 3, 10, 3, 12, 3, 74,
+		9, 3, 1, 3, 1, 3, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 5, 1, 5, 1, 5, 1, 5,
+		1, 5, 1, 5, 1, 6, 1, 6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7,
+		1, 7, 1, 7, 1, 7, 1, 7, 3, 7, 103, 8, 7, 1, 8, 1, 8, 1, 8, 1, 8, 5, 8,
+		109, 8, 8, 10, 8, 12, 8, 112, 9, 8, 1, 8, 1, 8, 1, 9, 1, 9, 3, 9, 118,
+		8, 9, 1, 10, 3, 10, 121, 8, 10, 1, 10, 1, 10, 1, 10, 5, 10, 126, 8, 10,
+		10, 10, 12, 10, 129, 9, 10, 1, 10, 1, 10, 1, 11, 1, 11, 1, 11, 1, 11, 5,
+		11, 137, 8, 11, 10, 11, 12, 11, 140, 9, 11, 1, 11, 1, 11, 1, 12, 1, 12,
+		3, 12, 146, 8, 12, 1, 13, 1, 13, 1, 13, 1, 13, 5, 13, 152, 8, 13, 10, 13,
+		12, 13, 155, 9, 13, 1, 13, 1, 13, 1, 14, 1, 14, 3, 14, 161, 8, 14, 1, 15,
+		1, 15, 1, 15, 1, 15, 1, 15, 1, 15, 1, 15, 1, 15, 3, 15, 171, 8, 15, 1,
+		15, 1, 15, 1, 16, 1, 16, 1, 16, 1, 16, 1, 16, 1, 17, 1, 17, 3, 17, 182,
+		8, 17, 1, 17, 1, 17, 3, 17, 186, 8, 17, 1, 17, 1, 17, 1, 17, 3, 17, 191,
+		8, 17, 1, 18, 1, 18, 1, 19, 1, 19, 1, 20, 1, 20, 3, 20, 199, 8, 20, 1,
+		21, 1, 21, 1, 21, 5, 21, 204, 8, 21, 10, 21, 12, 21, 207, 9, 21, 1, 22,
+		1, 22, 1, 22, 0, 0, 23, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24,
+		26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 0, 2, 1, 0, 40, 41, 2, 0, 3, 20,
+		23, 23, 221, 0, 47, 1, 0, 0, 0, 2, 58, 1, 0, 0, 0, 4, 62, 1, 0, 0, 0, 6,
+		66, 1, 0, 0, 0, 8, 77, 1, 0, 0, 0, 10, 82, 1, 0, 0, 0, 12, 88, 1, 0, 0,
+		0, 14, 102, 1, 0, 0, 0, 16, 104, 1, 0, 0, 0, 18, 117, 1, 0, 0, 0, 20, 120,
+		1, 0, 0, 0, 22, 132, 1, 0, 0, 0, 24, 145, 1, 0, 0, 0, 26, 147, 1, 0, 0,
+		0, 28, 160, 1, 0, 0, 0, 30, 162, 1, 0, 0, 0, 32, 174, 1, 0, 0, 0, 34, 190,
+		1, 0, 0, 0, 36, 192, 1, 0, 0, 0, 38, 194, 1, 0, 0, 0, 40, 198, 1, 0, 0,
+		0, 42, 200, 1, 0, 0, 0, 44, 208, 1, 0, 0, 0, 46, 48, 3, 2, 1, 0, 47, 46,
+		1, 0, 0, 0, 47, 48, 1, 0, 0, 0, 48, 55, 1, 0, 0, 0, 49, 54, 3, 4, 2, 0,
+		50, 54, 3, 6, 3, 0, 51, 54, 3, 16, 8, 0, 52, 54, 3, 26, 13, 0, 53, 49,
+		1, 0, 0, 0, 53, 50, 1, 0, 0, 0, 53, 51, 1, 0, 0, 0, 53, 52, 1, 0, 0, 0,
+		54, 57, 1, 0, 0, 0, 55, 53, 1, 0, 0, 0, 55, 56, 1, 0, 0, 0, 56, 1, 1, 0,
+		0, 0, 57, 55, 1, 0, 0, 0, 58, 59, 5, 4, 0, 0, 59, 60, 3, 38, 19, 0, 60,
+		61, 5, 27, 0, 0, 61, 3, 1, 0, 0, 0, 62, 63, 5, 3, 0, 0, 63, 64, 5, 43,
+		0, 0, 64, 65, 5, 27, 0, 0, 65, 5, 1, 0, 0, 0, 66, 67, 5, 26, 0, 0, 67,
+		68, 5, 2, 0, 0, 68, 72, 5, 33, 0, 0, 69, 71, 3, 8, 4, 0, 70, 69, 1, 0,
+		0, 0, 71, 74, 1, 0, 0, 0, 72, 70, 1, 0, 0, 0, 72, 73, 1, 0, 0, 0, 73, 75,
+		1, 0, 0, 0, 74, 72, 1, 0, 0, 0, 75, 76, 5, 34, 0, 0, 76, 7, 1, 0, 0, 0,
+		77, 78, 3, 38, 19, 0, 78, 79, 5, 28, 0, 0, 79, 80, 3, 34, 17, 0, 80, 81,
+		5, 27, 0, 0, 81, 9, 1, 0, 0, 0, 82, 83, 3, 38, 19, 0, 83, 84, 5, 39, 0,
+		0, 84, 85, 3, 14, 7, 0, 85, 86, 5, 28, 0, 0, 86, 87, 3, 12, 6, 0, 87, 11,
+		1, 0, 0, 0, 88, 89, 5, 46, 0, 0, 89, 13, 1, 0, 0, 0, 90, 103, 5, 5, 0,
+		0, 91, 103, 5, 6, 0, 0, 92, 103, 5, 7, 0, 0, 93, 103, 5, 8, 0, 0, 94, 103,
+		5, 9, 0, 0, 95, 103, 5, 10, 0, 0, 96, 103, 5, 11, 0, 0, 97, 103, 5, 12,
+		0, 0, 98, 103, 5, 13, 0, 0, 99, 103, 5, 14, 0, 0, 100, 103, 5, 17, 0, 0,
+		101, 103, 3, 20, 10, 0, 102, 90, 1, 0, 0, 0, 102, 91, 1, 0, 0, 0, 102,
+		92, 1, 0, 0, 0, 102, 93, 1, 0, 0, 0, 102, 94, 1, 0, 0, 0, 102, 95, 1, 0,
+		0, 0, 102, 96, 1, 0, 0, 0, 102, 97, 1, 0, 0, 0, 102, 98, 1, 0, 0, 0, 102,
+		99, 1, 0, 0, 0, 102, 100, 1, 0, 0, 0, 102, 101, 1, 0, 0, 0, 103, 15, 1,
+		0, 0, 0, 104, 105, 5, 18, 0, 0, 105, 106, 3, 38, 19, 0, 106, 110, 5, 33,
+		0, 0, 107, 109, 3, 18, 9, 0, 108, 107, 1, 0, 0, 0, 109, 112, 1, 0, 0, 0,
+		110, 108, 1, 0, 0, 0, 110, 111, 1, 0, 0, 0, 111, 113, 1, 0, 0, 0, 112,
+		110, 1, 0, 0, 0, 113, 114, 5, 34, 0, 0, 114, 17, 1, 0, 0, 0, 115, 118,
+		3, 10, 5, 0, 116, 118, 3, 16, 8, 0, 117, 115, 1, 0, 0, 0, 117, 116, 1,
+		0, 0, 0, 118, 19, 1, 0, 0, 0, 119, 121, 5, 37, 0, 0, 120, 119, 1, 0, 0,
+		0, 120, 121, 1, 0, 0, 0, 121, 127, 1, 0, 0, 0, 122, 123, 3, 40, 20, 0,
+		123, 124, 5, 37, 0, 0, 124, 126, 1, 0, 0, 0, 125, 122, 1, 0, 0, 0, 126,
+		129, 1, 0, 0, 0, 127, 125, 1, 0, 0, 0, 127, 128, 1, 0, 0, 0, 128, 130,
+		1, 0, 0, 0, 129, 127, 1, 0, 0, 0, 130, 131, 3, 38, 19, 0, 131, 21, 1, 0,
+		0, 0, 132, 133, 5, 22, 0, 0, 133, 134, 3, 38, 19, 0, 134, 138, 5, 33, 0,
+		0, 135, 137, 3, 24, 12, 0, 136, 135, 1, 0, 0, 0, 137, 140, 1, 0, 0, 0,
+		138, 136, 1, 0, 0, 0, 138, 139, 1, 0, 0, 0, 139, 141, 1, 0, 0, 0, 140,
+		138, 1, 0, 0, 0, 141, 142, 5, 34, 0, 0, 142, 23, 1, 0, 0, 0, 143, 146,
+		3, 10, 5, 0, 144, 146, 3, 22, 11, 0, 145, 143, 1, 0, 0, 0, 145, 144, 1,
+		0, 0, 0, 146, 25, 1, 0, 0, 0, 147, 148, 5, 19, 0, 0, 148, 149, 3, 38, 19,
+		0, 149, 153, 5, 33, 0, 0, 150, 152, 3, 28, 14, 0, 151, 150, 1, 0, 0, 0,
+		152, 155, 1, 0, 0, 0, 153, 151, 1, 0, 0, 0, 153, 154, 1, 0, 0, 0, 154,
+		156, 1, 0, 0, 0, 155, 153, 1, 0, 0, 0, 156, 157, 5, 34, 0, 0, 157, 27,
+		1, 0, 0, 0, 158, 161, 3, 30, 15, 0, 159, 161, 3, 36, 18, 0, 160, 158, 1,
+		0, 0, 0, 160, 159, 1, 0, 0, 0, 161, 29, 1, 0, 0, 0, 162, 163, 5, 20, 0,
+		0, 163, 164, 3, 38, 19, 0, 164, 165, 5, 29, 0, 0, 165, 166, 3, 20, 10,
+		0, 166, 167, 5, 30, 0, 0, 167, 170, 5, 1, 0, 0, 168, 171, 3, 20, 10, 0,
+		169, 171, 5, 23, 0, 0, 170, 168, 1, 0, 0, 0, 170, 169, 1, 0, 0, 0, 171,
+		172, 1, 0, 0, 0, 172, 173, 5, 27, 0, 0, 173, 31, 1, 0, 0, 0, 174, 175,
+		3, 38, 19, 0, 175, 176, 5, 28, 0, 0, 176, 177, 3, 12, 6, 0, 177, 178, 5,
+		27, 0, 0, 178, 33, 1, 0, 0, 0, 179, 191, 3, 42, 21, 0, 180, 182, 7, 0,
+		0, 0, 181, 180, 1, 0, 0, 0, 181, 182, 1, 0, 0, 0, 182, 183, 1, 0, 0, 0,
+		183, 191, 5, 46, 0, 0, 184, 186, 7, 0, 0, 0, 185, 184, 1, 0, 0, 0, 185,
+		186, 1, 0, 0, 0, 186, 187, 1, 0, 0, 0, 187, 191, 5, 45, 0, 0, 188, 191,
+		5, 43, 0, 0, 189, 191, 5, 44, 0, 0, 190, 179, 1, 0, 0, 0, 190, 181, 1,
+		0, 0, 0, 190, 185, 1, 0, 0, 0, 190, 188, 1, 0, 0, 0, 190, 189, 1, 0, 0,
+		0, 191, 35, 1, 0, 0, 0, 192, 193, 5, 27, 0, 0, 193, 37, 1, 0, 0, 0, 194,
+		195, 5, 47, 0, 0, 195, 39, 1, 0, 0, 0, 196, 199, 5, 47, 0, 0, 197, 199,
+		3, 44, 22, 0, 198, 196, 1, 0, 0, 0, 198, 197, 1, 0, 0, 0, 199, 41, 1, 0,
+		0, 0, 200, 205, 3, 40, 20, 0, 201, 202, 5, 37, 0, 0, 202, 204, 3, 40, 20,
+		0, 203, 201, 1, 0, 0, 0, 204, 207, 1, 0, 0, 0, 205, 203, 1, 0, 0, 0, 205,
+		206, 1, 0, 0, 0, 206, 43, 1, 0, 0, 0, 207, 205, 1, 0, 0, 0, 208, 209, 7,
+		1, 0, 0, 209, 45, 1, 0, 0, 0, 19, 47, 53, 55, 72, 102, 110, 117, 120, 127,
+		138, 145, 153, 160, 170, 181, 185, 190, 198, 205,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -191,51 +185,55 @@ func NewYobufferParser(input antlr.TokenStream) *YobufferParser {
 // YobufferParser tokens.
 const (
 	YobufferParserEOF          = antlr.TokenEOF
-	YobufferParserMETA         = 1
-	YobufferParserIMPORT       = 2
-	YobufferParserPACKAGE      = 3
-	YobufferParserINT8         = 4
-	YobufferParserINT16        = 5
-	YobufferParserINT32        = 6
-	YobufferParserINT64        = 7
-	YobufferParserUINT8        = 8
-	YobufferParserUINT16       = 9
-	YobufferParserUINT32       = 10
-	YobufferParserUINT64       = 11
-	YobufferParserBOOL         = 12
-	YobufferParserSTRING       = 13
-	YobufferParserFLOAT32      = 14
-	YobufferParserFLOAT64      = 15
-	YobufferParserBYTES        = 16
-	YobufferParserMESSAGE      = 17
-	YobufferParserSERVICE      = 18
-	YobufferParserRPC          = 19
-	YobufferParserSTREAM       = 20
-	YobufferParserSTRUCT       = 21
-	YobufferParserVOID         = 22
-	YobufferParserAT           = 23
-	YobufferParserEND          = 24
-	YobufferParserEQ           = 25
-	YobufferParserLP           = 26
-	YobufferParserRP           = 27
-	YobufferParserLB           = 28
-	YobufferParserRB           = 29
-	YobufferParserLC           = 30
-	YobufferParserRC           = 31
-	YobufferParserLT           = 32
-	YobufferParserGT           = 33
-	YobufferParserDOT          = 34
-	YobufferParserCOMMA        = 35
-	YobufferParserCOLON        = 36
-	YobufferParserPLUS         = 37
-	YobufferParserMINUS        = 38
-	YobufferParserSTRING_VALUE = 39
-	YobufferParserBOOL_VALUE   = 40
-	YobufferParserFLOAT_VALUE  = 41
-	YobufferParserINT_VALUE    = 42
-	YobufferParserIDENTIFIER   = 43
-	YobufferParserWHITESPACE   = 44
-	YobufferParserCOMMENT      = 45
+	YobufferParserT__0         = 1
+	YobufferParserMETA         = 2
+	YobufferParserIMPORT       = 3
+	YobufferParserPACKAGE      = 4
+	YobufferParserINT8         = 5
+	YobufferParserINT16        = 6
+	YobufferParserINT32        = 7
+	YobufferParserINT64        = 8
+	YobufferParserUINT8        = 9
+	YobufferParserUINT16       = 10
+	YobufferParserUINT32       = 11
+	YobufferParserUINT64       = 12
+	YobufferParserBOOL         = 13
+	YobufferParserSTRING       = 14
+	YobufferParserFLOAT32      = 15
+	YobufferParserFLOAT64      = 16
+	YobufferParserBYTES        = 17
+	YobufferParserMESSAGE      = 18
+	YobufferParserSERVICE      = 19
+	YobufferParserRPC          = 20
+	YobufferParserSTREAM       = 21
+	YobufferParserSTRUCT       = 22
+	YobufferParserVOID         = 23
+	YobufferParserMAP          = 24
+	YobufferParserLIST         = 25
+	YobufferParserAT           = 26
+	YobufferParserEND          = 27
+	YobufferParserEQ           = 28
+	YobufferParserLP           = 29
+	YobufferParserRP           = 30
+	YobufferParserLB           = 31
+	YobufferParserRB           = 32
+	YobufferParserLC           = 33
+	YobufferParserRC           = 34
+	YobufferParserLT           = 35
+	YobufferParserGT           = 36
+	YobufferParserDOT          = 37
+	YobufferParserCOMMA        = 38
+	YobufferParserCOLON        = 39
+	YobufferParserPLUS         = 40
+	YobufferParserMINUS        = 41
+	YobufferParserNEWLINE      = 42
+	YobufferParserSTRING_VALUE = 43
+	YobufferParserBOOL_VALUE   = 44
+	YobufferParserFLOAT_VALUE  = 45
+	YobufferParserINT_VALUE    = 46
+	YobufferParserIDENTIFIER   = 47
+	YobufferParserWHITESPACE   = 48
+	YobufferParserCOMMENT      = 49
 )
 
 // YobufferParser rules.
@@ -244,29 +242,25 @@ const (
 	YobufferParserRULE_packageStmt    = 1
 	YobufferParserRULE_importStmt     = 2
 	YobufferParserRULE_meta           = 3
-	YobufferParserRULE_metaName       = 4
-	YobufferParserRULE_metaElement    = 5
-	YobufferParserRULE_field          = 6
-	YobufferParserRULE_fieldName      = 7
-	YobufferParserRULE_fieldTag       = 8
-	YobufferParserRULE_fieldType      = 9
-	YobufferParserRULE_message        = 10
-	YobufferParserRULE_messageName    = 11
-	YobufferParserRULE_messageElement = 12
-	YobufferParserRULE_messageType    = 13
-	YobufferParserRULE_struct         = 14
-	YobufferParserRULE_structName     = 15
-	YobufferParserRULE_structElement  = 16
-	YobufferParserRULE_service        = 17
-	YobufferParserRULE_serviceName    = 18
-	YobufferParserRULE_serviceElement = 19
-	YobufferParserRULE_rpc            = 20
-	YobufferParserRULE_rpcName        = 21
-	YobufferParserRULE_constant       = 22
-	YobufferParserRULE_emptyStmt      = 23
-	YobufferParserRULE_ident          = 24
-	YobufferParserRULE_fullIdent      = 25
-	YobufferParserRULE_keywords       = 26
+	YobufferParserRULE_metaElement    = 4
+	YobufferParserRULE_field          = 5
+	YobufferParserRULE_fieldTag       = 6
+	YobufferParserRULE_fieldType      = 7
+	YobufferParserRULE_message        = 8
+	YobufferParserRULE_messageElement = 9
+	YobufferParserRULE_messageType    = 10
+	YobufferParserRULE_struct         = 11
+	YobufferParserRULE_structElement  = 12
+	YobufferParserRULE_service        = 13
+	YobufferParserRULE_serviceElement = 14
+	YobufferParserRULE_rpc            = 15
+	YobufferParserRULE_rpcField       = 16
+	YobufferParserRULE_constant       = 17
+	YobufferParserRULE_emptyStmt      = 18
+	YobufferParserRULE_name           = 19
+	YobufferParserRULE_ident          = 20
+	YobufferParserRULE_fullIdent      = 21
+	YobufferParserRULE_keywords       = 22
 )
 
 // ISchemaContext is an interface to support dynamic dispatch.
@@ -539,7 +533,7 @@ func (p *YobufferParser) Schema() (localctx ISchemaContext) {
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(55)
+	p.SetState(47)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -548,20 +542,20 @@ func (p *YobufferParser) Schema() (localctx ISchemaContext) {
 
 	if _la == YobufferParserPACKAGE {
 		{
-			p.SetState(54)
+			p.SetState(46)
 			p.PackageStmt()
 		}
 
 	}
-	p.SetState(63)
+	p.SetState(55)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&8781828) != 0 {
-		p.SetState(61)
+	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&67895304) != 0 {
+		p.SetState(53)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -570,25 +564,25 @@ func (p *YobufferParser) Schema() (localctx ISchemaContext) {
 		switch p.GetTokenStream().LA(1) {
 		case YobufferParserIMPORT:
 			{
-				p.SetState(57)
+				p.SetState(49)
 				p.ImportStmt()
 			}
 
 		case YobufferParserAT:
 			{
-				p.SetState(58)
+				p.SetState(50)
 				p.Meta()
 			}
 
 		case YobufferParserMESSAGE:
 			{
-				p.SetState(59)
+				p.SetState(51)
 				p.Message()
 			}
 
 		case YobufferParserSERVICE:
 			{
-				p.SetState(60)
+				p.SetState(52)
 				p.Service()
 			}
 
@@ -597,7 +591,7 @@ func (p *YobufferParser) Schema() (localctx ISchemaContext) {
 			goto errorExit
 		}
 
-		p.SetState(65)
+		p.SetState(57)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -627,7 +621,7 @@ type IPackageStmtContext interface {
 
 	// Getter signatures
 	PACKAGE() antlr.TerminalNode
-	FullIdent() IFullIdentContext
+	Name() INameContext
 	END() antlr.TerminalNode
 
 	// IsPackageStmtContext differentiates from other interfaces.
@@ -670,10 +664,10 @@ func (s *PackageStmtContext) PACKAGE() antlr.TerminalNode {
 	return s.GetToken(YobufferParserPACKAGE, 0)
 }
 
-func (s *PackageStmtContext) FullIdent() IFullIdentContext {
+func (s *PackageStmtContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IFullIdentContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -683,7 +677,7 @@ func (s *PackageStmtContext) FullIdent() IFullIdentContext {
 		return nil
 	}
 
-	return t.(IFullIdentContext)
+	return t.(INameContext)
 }
 
 func (s *PackageStmtContext) END() antlr.TerminalNode {
@@ -725,7 +719,7 @@ func (p *YobufferParser) PackageStmt() (localctx IPackageStmtContext) {
 	p.EnterRule(localctx, 2, YobufferParserRULE_packageStmt)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(66)
+		p.SetState(58)
 		p.Match(YobufferParserPACKAGE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -733,11 +727,11 @@ func (p *YobufferParser) PackageStmt() (localctx IPackageStmtContext) {
 		}
 	}
 	{
-		p.SetState(67)
-		p.FullIdent()
+		p.SetState(59)
+		p.Name()
 	}
 	{
-		p.SetState(68)
+		p.SetState(60)
 		p.Match(YobufferParserEND)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -853,7 +847,7 @@ func (p *YobufferParser) ImportStmt() (localctx IImportStmtContext) {
 	p.EnterRule(localctx, 4, YobufferParserRULE_importStmt)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(70)
+		p.SetState(62)
 		p.Match(YobufferParserIMPORT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -861,7 +855,7 @@ func (p *YobufferParser) ImportStmt() (localctx IImportStmtContext) {
 		}
 	}
 	{
-		p.SetState(71)
+		p.SetState(63)
 		p.Match(YobufferParserSTRING_VALUE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -869,7 +863,7 @@ func (p *YobufferParser) ImportStmt() (localctx IImportStmtContext) {
 		}
 	}
 	{
-		p.SetState(72)
+		p.SetState(64)
 		p.Match(YobufferParserEND)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -902,7 +896,6 @@ type IMetaContext interface {
 	META() antlr.TerminalNode
 	LC() antlr.TerminalNode
 	RC() antlr.TerminalNode
-	END() antlr.TerminalNode
 	AllMetaElement() []IMetaElementContext
 	MetaElement(i int) IMetaElementContext
 
@@ -956,10 +949,6 @@ func (s *MetaContext) LC() antlr.TerminalNode {
 
 func (s *MetaContext) RC() antlr.TerminalNode {
 	return s.GetToken(YobufferParserRC, 0)
-}
-
-func (s *MetaContext) END() antlr.TerminalNode {
-	return s.GetToken(YobufferParserEND, 0)
 }
 
 func (s *MetaContext) AllMetaElement() []IMetaElementContext {
@@ -1040,7 +1029,7 @@ func (p *YobufferParser) Meta() (localctx IMetaContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(74)
+		p.SetState(66)
 		p.Match(YobufferParserAT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1048,7 +1037,7 @@ func (p *YobufferParser) Meta() (localctx IMetaContext) {
 		}
 	}
 	{
-		p.SetState(75)
+		p.SetState(67)
 		p.Match(YobufferParserMETA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1056,27 +1045,27 @@ func (p *YobufferParser) Meta() (localctx IMetaContext) {
 		}
 	}
 	{
-		p.SetState(76)
+		p.SetState(68)
 		p.Match(YobufferParserLC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(80)
+	p.SetState(72)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&8796098265084) != 0 {
+	for _la == YobufferParserIDENTIFIER {
 		{
-			p.SetState(77)
+			p.SetState(69)
 			p.MetaElement()
 		}
 
-		p.SetState(82)
+		p.SetState(74)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1084,134 +1073,12 @@ func (p *YobufferParser) Meta() (localctx IMetaContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(83)
+		p.SetState(75)
 		p.Match(YobufferParserRC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
-	}
-	{
-		p.SetState(84)
-		p.Match(YobufferParserEND)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IMetaNameContext is an interface to support dynamic dispatch.
-type IMetaNameContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	Ident() IIdentContext
-
-	// IsMetaNameContext differentiates from other interfaces.
-	IsMetaNameContext()
-}
-
-type MetaNameContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyMetaNameContext() *MetaNameContext {
-	var p = new(MetaNameContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_metaName
-	return p
-}
-
-func InitEmptyMetaNameContext(p *MetaNameContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_metaName
-}
-
-func (*MetaNameContext) IsMetaNameContext() {}
-
-func NewMetaNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *MetaNameContext {
-	var p = new(MetaNameContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = YobufferParserRULE_metaName
-
-	return p
-}
-
-func (s *MetaNameContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *MetaNameContext) Ident() IIdentContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIdentContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IIdentContext)
-}
-
-func (s *MetaNameContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MetaNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *MetaNameContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.EnterMetaName(s)
-	}
-}
-
-func (s *MetaNameContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.ExitMetaName(s)
-	}
-}
-
-func (s *MetaNameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case YobufferVisitor:
-		return t.VisitMetaName(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *YobufferParser) MetaName() (localctx IMetaNameContext) {
-	localctx = NewMetaNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, YobufferParserRULE_metaName)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(86)
-		p.Ident()
 	}
 
 errorExit:
@@ -1235,7 +1102,7 @@ type IMetaElementContext interface {
 	GetParser() antlr.Parser
 
 	// Getter signatures
-	MetaName() IMetaNameContext
+	Name() INameContext
 	EQ() antlr.TerminalNode
 	Constant() IConstantContext
 	END() antlr.TerminalNode
@@ -1276,10 +1143,10 @@ func NewMetaElementContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 
 func (s *MetaElementContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *MetaElementContext) MetaName() IMetaNameContext {
+func (s *MetaElementContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IMetaNameContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -1289,7 +1156,7 @@ func (s *MetaElementContext) MetaName() IMetaNameContext {
 		return nil
 	}
 
-	return t.(IMetaNameContext)
+	return t.(INameContext)
 }
 
 func (s *MetaElementContext) EQ() antlr.TerminalNode {
@@ -1348,14 +1215,14 @@ func (s *MetaElementContext) Accept(visitor antlr.ParseTreeVisitor) interface{} 
 
 func (p *YobufferParser) MetaElement() (localctx IMetaElementContext) {
 	localctx = NewMetaElementContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, YobufferParserRULE_metaElement)
+	p.EnterRule(localctx, 8, YobufferParserRULE_metaElement)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(88)
-		p.MetaName()
+		p.SetState(77)
+		p.Name()
 	}
 	{
-		p.SetState(89)
+		p.SetState(78)
 		p.Match(YobufferParserEQ)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1363,11 +1230,11 @@ func (p *YobufferParser) MetaElement() (localctx IMetaElementContext) {
 		}
 	}
 	{
-		p.SetState(90)
+		p.SetState(79)
 		p.Constant()
 	}
 	{
-		p.SetState(91)
+		p.SetState(80)
 		p.Match(YobufferParserEND)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1396,12 +1263,11 @@ type IFieldContext interface {
 	GetParser() antlr.Parser
 
 	// Getter signatures
+	Name() INameContext
+	COLON() antlr.TerminalNode
 	FieldType() IFieldTypeContext
-	FieldName() IFieldNameContext
 	EQ() antlr.TerminalNode
 	FieldTag() IFieldTagContext
-	END() antlr.TerminalNode
-	Meta() IMetaContext
 
 	// IsFieldContext differentiates from other interfaces.
 	IsFieldContext()
@@ -1439,6 +1305,26 @@ func NewFieldContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 
 func (s *FieldContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *FieldContext) Name() INameContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(INameContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(INameContext)
+}
+
+func (s *FieldContext) COLON() antlr.TerminalNode {
+	return s.GetToken(YobufferParserCOLON, 0)
+}
+
 func (s *FieldContext) FieldType() IFieldTypeContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
@@ -1453,22 +1339,6 @@ func (s *FieldContext) FieldType() IFieldTypeContext {
 	}
 
 	return t.(IFieldTypeContext)
-}
-
-func (s *FieldContext) FieldName() IFieldNameContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IFieldNameContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFieldNameContext)
 }
 
 func (s *FieldContext) EQ() antlr.TerminalNode {
@@ -1489,26 +1359,6 @@ func (s *FieldContext) FieldTag() IFieldTagContext {
 	}
 
 	return t.(IFieldTagContext)
-}
-
-func (s *FieldContext) END() antlr.TerminalNode {
-	return s.GetToken(YobufferParserEND, 0)
-}
-
-func (s *FieldContext) Meta() IMetaContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IMetaContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IMetaContext)
 }
 
 func (s *FieldContext) GetRuleContext() antlr.RuleContext {
@@ -1543,34 +1393,26 @@ func (s *FieldContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Field() (localctx IFieldContext) {
 	localctx = NewFieldContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, YobufferParserRULE_field)
-	var _la int
-
+	p.EnterRule(localctx, 10, YobufferParserRULE_field)
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(94)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-	_la = p.GetTokenStream().LA(1)
-
-	if _la == YobufferParserAT {
-		{
-			p.SetState(93)
-			p.Meta()
-		}
-
+	{
+		p.SetState(82)
+		p.Name()
 	}
 	{
-		p.SetState(96)
+		p.SetState(83)
+		p.Match(YobufferParserCOLON)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(84)
 		p.FieldType()
 	}
 	{
-		p.SetState(97)
-		p.FieldName()
-	}
-	{
-		p.SetState(98)
+		p.SetState(85)
 		p.Match(YobufferParserEQ)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1578,130 +1420,8 @@ func (p *YobufferParser) Field() (localctx IFieldContext) {
 		}
 	}
 	{
-		p.SetState(99)
+		p.SetState(86)
 		p.FieldTag()
-	}
-	{
-		p.SetState(100)
-		p.Match(YobufferParserEND)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IFieldNameContext is an interface to support dynamic dispatch.
-type IFieldNameContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	Ident() IIdentContext
-
-	// IsFieldNameContext differentiates from other interfaces.
-	IsFieldNameContext()
-}
-
-type FieldNameContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyFieldNameContext() *FieldNameContext {
-	var p = new(FieldNameContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_fieldName
-	return p
-}
-
-func InitEmptyFieldNameContext(p *FieldNameContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_fieldName
-}
-
-func (*FieldNameContext) IsFieldNameContext() {}
-
-func NewFieldNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FieldNameContext {
-	var p = new(FieldNameContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = YobufferParserRULE_fieldName
-
-	return p
-}
-
-func (s *FieldNameContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *FieldNameContext) Ident() IIdentContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIdentContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IIdentContext)
-}
-
-func (s *FieldNameContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *FieldNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *FieldNameContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.EnterFieldName(s)
-	}
-}
-
-func (s *FieldNameContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.ExitFieldName(s)
-	}
-}
-
-func (s *FieldNameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case YobufferVisitor:
-		return t.VisitFieldName(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *YobufferParser) FieldName() (localctx IFieldNameContext) {
-	localctx = NewFieldNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, YobufferParserRULE_fieldName)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(102)
-		p.Ident()
 	}
 
 errorExit:
@@ -1799,10 +1519,10 @@ func (s *FieldTagContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) FieldTag() (localctx IFieldTagContext) {
 	localctx = NewFieldTagContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, YobufferParserRULE_fieldTag)
+	p.EnterRule(localctx, 12, YobufferParserRULE_fieldTag)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(104)
+		p.SetState(88)
 		p.Match(YobufferParserINT_VALUE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1972,18 +1692,18 @@ func (s *FieldTypeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	localctx = NewFieldTypeContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, YobufferParserRULE_fieldType)
-	p.SetState(118)
+	p.EnterRule(localctx, 14, YobufferParserRULE_fieldType)
+	p.SetState(102)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 5, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 4, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(106)
+			p.SetState(90)
 			p.Match(YobufferParserINT8)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1994,7 +1714,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(107)
+			p.SetState(91)
 			p.Match(YobufferParserINT16)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2005,7 +1725,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(108)
+			p.SetState(92)
 			p.Match(YobufferParserINT32)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2016,7 +1736,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 4:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(109)
+			p.SetState(93)
 			p.Match(YobufferParserINT64)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2027,7 +1747,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 5:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(110)
+			p.SetState(94)
 			p.Match(YobufferParserUINT8)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2038,7 +1758,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 6:
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(111)
+			p.SetState(95)
 			p.Match(YobufferParserUINT16)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2049,7 +1769,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 7:
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(112)
+			p.SetState(96)
 			p.Match(YobufferParserUINT32)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2060,7 +1780,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 8:
 		p.EnterOuterAlt(localctx, 8)
 		{
-			p.SetState(113)
+			p.SetState(97)
 			p.Match(YobufferParserUINT64)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2071,7 +1791,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 9:
 		p.EnterOuterAlt(localctx, 9)
 		{
-			p.SetState(114)
+			p.SetState(98)
 			p.Match(YobufferParserBOOL)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2082,7 +1802,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 10:
 		p.EnterOuterAlt(localctx, 10)
 		{
-			p.SetState(115)
+			p.SetState(99)
 			p.Match(YobufferParserSTRING)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2093,7 +1813,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 11:
 		p.EnterOuterAlt(localctx, 11)
 		{
-			p.SetState(116)
+			p.SetState(100)
 			p.Match(YobufferParserBYTES)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2104,7 +1824,7 @@ func (p *YobufferParser) FieldType() (localctx IFieldTypeContext) {
 	case 12:
 		p.EnterOuterAlt(localctx, 12)
 		{
-			p.SetState(117)
+			p.SetState(101)
 			p.MessageType()
 		}
 
@@ -2134,7 +1854,7 @@ type IMessageContext interface {
 
 	// Getter signatures
 	MESSAGE() antlr.TerminalNode
-	MessageName() IMessageNameContext
+	Name() INameContext
 	LC() antlr.TerminalNode
 	RC() antlr.TerminalNode
 	AllMessageElement() []IMessageElementContext
@@ -2180,10 +1900,10 @@ func (s *MessageContext) MESSAGE() antlr.TerminalNode {
 	return s.GetToken(YobufferParserMESSAGE, 0)
 }
 
-func (s *MessageContext) MessageName() IMessageNameContext {
+func (s *MessageContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IMessageNameContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -2193,7 +1913,7 @@ func (s *MessageContext) MessageName() IMessageNameContext {
 		return nil
 	}
 
-	return t.(IMessageNameContext)
+	return t.(INameContext)
 }
 
 func (s *MessageContext) LC() antlr.TerminalNode {
@@ -2277,12 +1997,12 @@ func (s *MessageContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Message() (localctx IMessageContext) {
 	localctx = NewMessageContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, YobufferParserRULE_message)
+	p.EnterRule(localctx, 16, YobufferParserRULE_message)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(120)
+		p.SetState(104)
 		p.Match(YobufferParserMESSAGE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2290,31 +2010,31 @@ func (p *YobufferParser) Message() (localctx IMessageContext) {
 		}
 	}
 	{
-		p.SetState(121)
-		p.MessageName()
+		p.SetState(105)
+		p.Name()
 	}
 	{
-		p.SetState(122)
+		p.SetState(106)
 		p.Match(YobufferParserLC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(126)
+	p.SetState(110)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&8813286522876) != 0 {
+	for _la == YobufferParserMESSAGE || _la == YobufferParserIDENTIFIER {
 		{
-			p.SetState(123)
+			p.SetState(107)
 			p.MessageElement()
 		}
 
-		p.SetState(128)
+		p.SetState(112)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2322,126 +2042,12 @@ func (p *YobufferParser) Message() (localctx IMessageContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(129)
+		p.SetState(113)
 		p.Match(YobufferParserRC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IMessageNameContext is an interface to support dynamic dispatch.
-type IMessageNameContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	Ident() IIdentContext
-
-	// IsMessageNameContext differentiates from other interfaces.
-	IsMessageNameContext()
-}
-
-type MessageNameContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyMessageNameContext() *MessageNameContext {
-	var p = new(MessageNameContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_messageName
-	return p
-}
-
-func InitEmptyMessageNameContext(p *MessageNameContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_messageName
-}
-
-func (*MessageNameContext) IsMessageNameContext() {}
-
-func NewMessageNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *MessageNameContext {
-	var p = new(MessageNameContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = YobufferParserRULE_messageName
-
-	return p
-}
-
-func (s *MessageNameContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *MessageNameContext) Ident() IIdentContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIdentContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IIdentContext)
-}
-
-func (s *MessageNameContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MessageNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *MessageNameContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.EnterMessageName(s)
-	}
-}
-
-func (s *MessageNameContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.ExitMessageName(s)
-	}
-}
-
-func (s *MessageNameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case YobufferVisitor:
-		return t.VisitMessageName(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *YobufferParser) MessageName() (localctx IMessageNameContext) {
-	localctx = NewMessageNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, YobufferParserRULE_messageName)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(131)
-		p.Ident()
 	}
 
 errorExit:
@@ -2568,29 +2174,30 @@ func (s *MessageElementContext) Accept(visitor antlr.ParseTreeVisitor) interface
 
 func (p *YobufferParser) MessageElement() (localctx IMessageElementContext) {
 	localctx = NewMessageElementContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, YobufferParserRULE_messageElement)
-	p.SetState(135)
+	p.EnterRule(localctx, 18, YobufferParserRULE_messageElement)
+	p.SetState(117)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 7, p.GetParserRuleContext()) {
-	case 1:
+	switch p.GetTokenStream().LA(1) {
+	case YobufferParserIDENTIFIER:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(133)
+			p.SetState(115)
 			p.Field()
 		}
 
-	case 2:
+	case YobufferParserMESSAGE:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(134)
+			p.SetState(116)
 			p.Message()
 		}
 
-	case antlr.ATNInvalidAltNumber:
+	default:
+		p.SetError(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		goto errorExit
 	}
 
@@ -2615,7 +2222,7 @@ type IMessageTypeContext interface {
 	GetParser() antlr.Parser
 
 	// Getter signatures
-	MessageName() IMessageNameContext
+	Name() INameContext
 	AllDOT() []antlr.TerminalNode
 	DOT(i int) antlr.TerminalNode
 	AllIdent() []IIdentContext
@@ -2657,10 +2264,10 @@ func NewMessageTypeContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 
 func (s *MessageTypeContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *MessageTypeContext) MessageName() IMessageNameContext {
+func (s *MessageTypeContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IMessageNameContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -2670,7 +2277,7 @@ func (s *MessageTypeContext) MessageName() IMessageNameContext {
 		return nil
 	}
 
-	return t.(IMessageNameContext)
+	return t.(INameContext)
 }
 
 func (s *MessageTypeContext) AllDOT() []antlr.TerminalNode {
@@ -2754,13 +2361,13 @@ func (s *MessageTypeContext) Accept(visitor antlr.ParseTreeVisitor) interface{} 
 
 func (p *YobufferParser) MessageType() (localctx IMessageTypeContext) {
 	localctx = NewMessageTypeContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, YobufferParserRULE_messageType)
+	p.EnterRule(localctx, 20, YobufferParserRULE_messageType)
 	var _la int
 
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(138)
+	p.SetState(120)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2769,7 +2376,7 @@ func (p *YobufferParser) MessageType() (localctx IMessageTypeContext) {
 
 	if _la == YobufferParserDOT {
 		{
-			p.SetState(137)
+			p.SetState(119)
 			p.Match(YobufferParserDOT)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2778,23 +2385,23 @@ func (p *YobufferParser) MessageType() (localctx IMessageTypeContext) {
 		}
 
 	}
-	p.SetState(145)
+	p.SetState(127)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
-	_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 9, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 8, p.GetParserRuleContext())
 	if p.HasError() {
 		goto errorExit
 	}
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
 			{
-				p.SetState(140)
+				p.SetState(122)
 				p.Ident()
 			}
 			{
-				p.SetState(141)
+				p.SetState(123)
 				p.Match(YobufferParserDOT)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -2803,19 +2410,19 @@ func (p *YobufferParser) MessageType() (localctx IMessageTypeContext) {
 			}
 
 		}
-		p.SetState(147)
+		p.SetState(129)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
 		}
-		_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 9, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 8, p.GetParserRuleContext())
 		if p.HasError() {
 			goto errorExit
 		}
 	}
 	{
-		p.SetState(148)
-		p.MessageName()
+		p.SetState(130)
+		p.Name()
 	}
 
 errorExit:
@@ -2840,7 +2447,7 @@ type IStructContext interface {
 
 	// Getter signatures
 	STRUCT() antlr.TerminalNode
-	StructName() IStructNameContext
+	Name() INameContext
 	LC() antlr.TerminalNode
 	RC() antlr.TerminalNode
 	AllStructElement() []IStructElementContext
@@ -2886,10 +2493,10 @@ func (s *StructContext) STRUCT() antlr.TerminalNode {
 	return s.GetToken(YobufferParserSTRUCT, 0)
 }
 
-func (s *StructContext) StructName() IStructNameContext {
+func (s *StructContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStructNameContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -2899,7 +2506,7 @@ func (s *StructContext) StructName() IStructNameContext {
 		return nil
 	}
 
-	return t.(IStructNameContext)
+	return t.(INameContext)
 }
 
 func (s *StructContext) LC() antlr.TerminalNode {
@@ -2983,12 +2590,12 @@ func (s *StructContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Struct_() (localctx IStructContext) {
 	localctx = NewStructContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, YobufferParserRULE_struct)
+	p.EnterRule(localctx, 22, YobufferParserRULE_struct)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(150)
+		p.SetState(132)
 		p.Match(YobufferParserSTRUCT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2996,31 +2603,31 @@ func (p *YobufferParser) Struct_() (localctx IStructContext) {
 		}
 	}
 	{
-		p.SetState(151)
-		p.StructName()
+		p.SetState(133)
+		p.Name()
 	}
 	{
-		p.SetState(152)
+		p.SetState(134)
 		p.Match(YobufferParserLC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(156)
+	p.SetState(138)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&8813288620028) != 0 {
+	for _la == YobufferParserSTRUCT || _la == YobufferParserIDENTIFIER {
 		{
-			p.SetState(153)
+			p.SetState(135)
 			p.StructElement()
 		}
 
-		p.SetState(158)
+		p.SetState(140)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -3028,126 +2635,12 @@ func (p *YobufferParser) Struct_() (localctx IStructContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(159)
+		p.SetState(141)
 		p.Match(YobufferParserRC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IStructNameContext is an interface to support dynamic dispatch.
-type IStructNameContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	Ident() IIdentContext
-
-	// IsStructNameContext differentiates from other interfaces.
-	IsStructNameContext()
-}
-
-type StructNameContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyStructNameContext() *StructNameContext {
-	var p = new(StructNameContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_structName
-	return p
-}
-
-func InitEmptyStructNameContext(p *StructNameContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_structName
-}
-
-func (*StructNameContext) IsStructNameContext() {}
-
-func NewStructNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *StructNameContext {
-	var p = new(StructNameContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = YobufferParserRULE_structName
-
-	return p
-}
-
-func (s *StructNameContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *StructNameContext) Ident() IIdentContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIdentContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IIdentContext)
-}
-
-func (s *StructNameContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *StructNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *StructNameContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.EnterStructName(s)
-	}
-}
-
-func (s *StructNameContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.ExitStructName(s)
-	}
-}
-
-func (s *StructNameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case YobufferVisitor:
-		return t.VisitStructName(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *YobufferParser) StructName() (localctx IStructNameContext) {
-	localctx = NewStructNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, YobufferParserRULE_structName)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(161)
-		p.Ident()
 	}
 
 errorExit:
@@ -3274,25 +2767,25 @@ func (s *StructElementContext) Accept(visitor antlr.ParseTreeVisitor) interface{
 
 func (p *YobufferParser) StructElement() (localctx IStructElementContext) {
 	localctx = NewStructElementContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 32, YobufferParserRULE_structElement)
-	p.SetState(165)
+	p.EnterRule(localctx, 24, YobufferParserRULE_structElement)
+	p.SetState(145)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
 	switch p.GetTokenStream().LA(1) {
-	case YobufferParserIMPORT, YobufferParserPACKAGE, YobufferParserINT8, YobufferParserINT16, YobufferParserINT32, YobufferParserINT64, YobufferParserUINT8, YobufferParserUINT16, YobufferParserUINT32, YobufferParserUINT64, YobufferParserBOOL, YobufferParserSTRING, YobufferParserFLOAT32, YobufferParserFLOAT64, YobufferParserBYTES, YobufferParserMESSAGE, YobufferParserSERVICE, YobufferParserRPC, YobufferParserVOID, YobufferParserAT, YobufferParserDOT, YobufferParserIDENTIFIER:
+	case YobufferParserIDENTIFIER:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(163)
+			p.SetState(143)
 			p.Field()
 		}
 
 	case YobufferParserSTRUCT:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(164)
+			p.SetState(144)
 			p.Struct_()
 		}
 
@@ -3323,7 +2816,7 @@ type IServiceContext interface {
 
 	// Getter signatures
 	SERVICE() antlr.TerminalNode
-	ServiceName() IServiceNameContext
+	Name() INameContext
 	LC() antlr.TerminalNode
 	RC() antlr.TerminalNode
 	AllServiceElement() []IServiceElementContext
@@ -3369,10 +2862,10 @@ func (s *ServiceContext) SERVICE() antlr.TerminalNode {
 	return s.GetToken(YobufferParserSERVICE, 0)
 }
 
-func (s *ServiceContext) ServiceName() IServiceNameContext {
+func (s *ServiceContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IServiceNameContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -3382,7 +2875,7 @@ func (s *ServiceContext) ServiceName() IServiceNameContext {
 		return nil
 	}
 
-	return t.(IServiceNameContext)
+	return t.(INameContext)
 }
 
 func (s *ServiceContext) LC() antlr.TerminalNode {
@@ -3466,12 +2959,12 @@ func (s *ServiceContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Service() (localctx IServiceContext) {
 	localctx = NewServiceContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 34, YobufferParserRULE_service)
+	p.EnterRule(localctx, 26, YobufferParserRULE_service)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(167)
+		p.SetState(147)
 		p.Match(YobufferParserSERVICE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3479,18 +2972,18 @@ func (p *YobufferParser) Service() (localctx IServiceContext) {
 		}
 	}
 	{
-		p.SetState(168)
-		p.ServiceName()
+		p.SetState(148)
+		p.Name()
 	}
 	{
-		p.SetState(169)
+		p.SetState(149)
 		p.Match(YobufferParserLC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(173)
+	p.SetState(153)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -3499,11 +2992,11 @@ func (p *YobufferParser) Service() (localctx IServiceContext) {
 
 	for _la == YobufferParserRPC || _la == YobufferParserEND {
 		{
-			p.SetState(170)
+			p.SetState(150)
 			p.ServiceElement()
 		}
 
-		p.SetState(175)
+		p.SetState(155)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -3511,126 +3004,12 @@ func (p *YobufferParser) Service() (localctx IServiceContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(176)
+		p.SetState(156)
 		p.Match(YobufferParserRC)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
-	}
-
-errorExit:
-	if p.HasError() {
-		v := p.GetError()
-		localctx.SetException(v)
-		p.GetErrorHandler().ReportError(p, v)
-		p.GetErrorHandler().Recover(p, v)
-		p.SetError(nil)
-	}
-	p.ExitRule()
-	return localctx
-	goto errorExit // Trick to prevent compiler error if the label is not used
-}
-
-// IServiceNameContext is an interface to support dynamic dispatch.
-type IServiceNameContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// Getter signatures
-	Ident() IIdentContext
-
-	// IsServiceNameContext differentiates from other interfaces.
-	IsServiceNameContext()
-}
-
-type ServiceNameContext struct {
-	antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyServiceNameContext() *ServiceNameContext {
-	var p = new(ServiceNameContext)
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_serviceName
-	return p
-}
-
-func InitEmptyServiceNameContext(p *ServiceNameContext) {
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_serviceName
-}
-
-func (*ServiceNameContext) IsServiceNameContext() {}
-
-func NewServiceNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ServiceNameContext {
-	var p = new(ServiceNameContext)
-
-	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = YobufferParserRULE_serviceName
-
-	return p
-}
-
-func (s *ServiceNameContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *ServiceNameContext) Ident() IIdentContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIdentContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IIdentContext)
-}
-
-func (s *ServiceNameContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ServiceNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *ServiceNameContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.EnterServiceName(s)
-	}
-}
-
-func (s *ServiceNameContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.ExitServiceName(s)
-	}
-}
-
-func (s *ServiceNameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case YobufferVisitor:
-		return t.VisitServiceName(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *YobufferParser) ServiceName() (localctx IServiceNameContext) {
-	localctx = NewServiceNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, YobufferParserRULE_serviceName)
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(178)
-		p.Ident()
 	}
 
 errorExit:
@@ -3757,8 +3136,8 @@ func (s *ServiceElementContext) Accept(visitor antlr.ParseTreeVisitor) interface
 
 func (p *YobufferParser) ServiceElement() (localctx IServiceElementContext) {
 	localctx = NewServiceElementContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 38, YobufferParserRULE_serviceElement)
-	p.SetState(182)
+	p.EnterRule(localctx, 28, YobufferParserRULE_serviceElement)
+	p.SetState(160)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -3768,14 +3147,14 @@ func (p *YobufferParser) ServiceElement() (localctx IServiceElementContext) {
 	case YobufferParserRPC:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(180)
+			p.SetState(158)
 			p.Rpc()
 		}
 
 	case YobufferParserEND:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(181)
+			p.SetState(159)
 			p.EmptyStmt()
 		}
 
@@ -3806,12 +3185,11 @@ type IRpcContext interface {
 
 	// Getter signatures
 	RPC() antlr.TerminalNode
-	RpcName() IRpcNameContext
+	Name() INameContext
 	LP() antlr.TerminalNode
 	AllMessageType() []IMessageTypeContext
 	MessageType(i int) IMessageTypeContext
 	RP() antlr.TerminalNode
-	COLON() antlr.TerminalNode
 	END() antlr.TerminalNode
 	VOID() antlr.TerminalNode
 
@@ -3855,10 +3233,10 @@ func (s *RpcContext) RPC() antlr.TerminalNode {
 	return s.GetToken(YobufferParserRPC, 0)
 }
 
-func (s *RpcContext) RpcName() IRpcNameContext {
+func (s *RpcContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IRpcNameContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -3868,7 +3246,7 @@ func (s *RpcContext) RpcName() IRpcNameContext {
 		return nil
 	}
 
-	return t.(IRpcNameContext)
+	return t.(INameContext)
 }
 
 func (s *RpcContext) LP() antlr.TerminalNode {
@@ -3920,10 +3298,6 @@ func (s *RpcContext) RP() antlr.TerminalNode {
 	return s.GetToken(YobufferParserRP, 0)
 }
 
-func (s *RpcContext) COLON() antlr.TerminalNode {
-	return s.GetToken(YobufferParserCOLON, 0)
-}
-
 func (s *RpcContext) END() antlr.TerminalNode {
 	return s.GetToken(YobufferParserEND, 0)
 }
@@ -3964,10 +3338,10 @@ func (s *RpcContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Rpc() (localctx IRpcContext) {
 	localctx = NewRpcContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 40, YobufferParserRULE_rpc)
+	p.EnterRule(localctx, 30, YobufferParserRULE_rpc)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(184)
+		p.SetState(162)
 		p.Match(YobufferParserRPC)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3975,11 +3349,11 @@ func (p *YobufferParser) Rpc() (localctx IRpcContext) {
 		}
 	}
 	{
-		p.SetState(185)
-		p.RpcName()
+		p.SetState(163)
+		p.Name()
 	}
 	{
-		p.SetState(186)
+		p.SetState(164)
 		p.Match(YobufferParserLP)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3987,11 +3361,11 @@ func (p *YobufferParser) Rpc() (localctx IRpcContext) {
 		}
 	}
 	{
-		p.SetState(187)
+		p.SetState(165)
 		p.MessageType()
 	}
 	{
-		p.SetState(188)
+		p.SetState(166)
 		p.Match(YobufferParserRP)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3999,29 +3373,29 @@ func (p *YobufferParser) Rpc() (localctx IRpcContext) {
 		}
 	}
 	{
-		p.SetState(189)
-		p.Match(YobufferParserCOLON)
+		p.SetState(167)
+		p.Match(YobufferParserT__0)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(192)
+	p.SetState(170)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 14, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 13, p.GetParserRuleContext()) {
 	case 1:
 		{
-			p.SetState(190)
+			p.SetState(168)
 			p.MessageType()
 		}
 
 	case 2:
 		{
-			p.SetState(191)
+			p.SetState(169)
 			p.Match(YobufferParserVOID)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4033,7 +3407,7 @@ func (p *YobufferParser) Rpc() (localctx IRpcContext) {
 		goto errorExit
 	}
 	{
-		p.SetState(194)
+		p.SetState(172)
 		p.Match(YobufferParserEND)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4054,56 +3428,59 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-// IRpcNameContext is an interface to support dynamic dispatch.
-type IRpcNameContext interface {
+// IRpcFieldContext is an interface to support dynamic dispatch.
+type IRpcFieldContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
 	// Getter signatures
-	Ident() IIdentContext
+	Name() INameContext
+	EQ() antlr.TerminalNode
+	FieldTag() IFieldTagContext
+	END() antlr.TerminalNode
 
-	// IsRpcNameContext differentiates from other interfaces.
-	IsRpcNameContext()
+	// IsRpcFieldContext differentiates from other interfaces.
+	IsRpcFieldContext()
 }
 
-type RpcNameContext struct {
+type RpcFieldContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyRpcNameContext() *RpcNameContext {
-	var p = new(RpcNameContext)
+func NewEmptyRpcFieldContext() *RpcFieldContext {
+	var p = new(RpcFieldContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_rpcName
+	p.RuleIndex = YobufferParserRULE_rpcField
 	return p
 }
 
-func InitEmptyRpcNameContext(p *RpcNameContext) {
+func InitEmptyRpcFieldContext(p *RpcFieldContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = YobufferParserRULE_rpcName
+	p.RuleIndex = YobufferParserRULE_rpcField
 }
 
-func (*RpcNameContext) IsRpcNameContext() {}
+func (*RpcFieldContext) IsRpcFieldContext() {}
 
-func NewRpcNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *RpcNameContext {
-	var p = new(RpcNameContext)
+func NewRpcFieldContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *RpcFieldContext {
+	var p = new(RpcFieldContext)
 
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = YobufferParserRULE_rpcName
+	p.RuleIndex = YobufferParserRULE_rpcField
 
 	return p
 }
 
-func (s *RpcNameContext) GetParser() antlr.Parser { return s.parser }
+func (s *RpcFieldContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *RpcNameContext) Ident() IIdentContext {
+func (s *RpcFieldContext) Name() INameContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IIdentContext); ok {
+		if _, ok := ctx.(INameContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -4113,46 +3490,90 @@ func (s *RpcNameContext) Ident() IIdentContext {
 		return nil
 	}
 
-	return t.(IIdentContext)
+	return t.(INameContext)
 }
 
-func (s *RpcNameContext) GetRuleContext() antlr.RuleContext {
+func (s *RpcFieldContext) EQ() antlr.TerminalNode {
+	return s.GetToken(YobufferParserEQ, 0)
+}
+
+func (s *RpcFieldContext) FieldTag() IFieldTagContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IFieldTagContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFieldTagContext)
+}
+
+func (s *RpcFieldContext) END() antlr.TerminalNode {
+	return s.GetToken(YobufferParserEND, 0)
+}
+
+func (s *RpcFieldContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *RpcNameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *RpcFieldContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *RpcNameContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *RpcFieldContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.EnterRpcName(s)
+		listenerT.EnterRpcField(s)
 	}
 }
 
-func (s *RpcNameContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *RpcFieldContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(YobufferListener); ok {
-		listenerT.ExitRpcName(s)
+		listenerT.ExitRpcField(s)
 	}
 }
 
-func (s *RpcNameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+func (s *RpcFieldContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 	switch t := visitor.(type) {
 	case YobufferVisitor:
-		return t.VisitRpcName(s)
+		return t.VisitRpcField(s)
 
 	default:
 		return t.VisitChildren(s)
 	}
 }
 
-func (p *YobufferParser) RpcName() (localctx IRpcNameContext) {
-	localctx = NewRpcNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 42, YobufferParserRULE_rpcName)
+func (p *YobufferParser) RpcField() (localctx IRpcFieldContext) {
+	localctx = NewRpcFieldContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 32, YobufferParserRULE_rpcField)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(196)
-		p.Ident()
+		p.SetState(174)
+		p.Name()
+	}
+	{
+		p.SetState(175)
+		p.Match(YobufferParserEQ)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(176)
+		p.FieldTag()
+	}
+	{
+		p.SetState(177)
+		p.Match(YobufferParserEND)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
 	}
 
 errorExit:
@@ -4292,26 +3713,26 @@ func (s *ConstantContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Constant() (localctx IConstantContext) {
 	localctx = NewConstantContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 44, YobufferParserRULE_constant)
+	p.EnterRule(localctx, 34, YobufferParserRULE_constant)
 	var _la int
 
-	p.SetState(209)
+	p.SetState(190)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 17, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 16, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(198)
+			p.SetState(179)
 			p.FullIdent()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
-		p.SetState(200)
+		p.SetState(181)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -4320,7 +3741,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 
 		if _la == YobufferParserPLUS || _la == YobufferParserMINUS {
 			{
-				p.SetState(199)
+				p.SetState(180)
 				_la = p.GetTokenStream().LA(1)
 
 				if !(_la == YobufferParserPLUS || _la == YobufferParserMINUS) {
@@ -4333,7 +3754,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 
 		}
 		{
-			p.SetState(202)
+			p.SetState(183)
 			p.Match(YobufferParserINT_VALUE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4343,7 +3764,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
-		p.SetState(204)
+		p.SetState(185)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -4352,7 +3773,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 
 		if _la == YobufferParserPLUS || _la == YobufferParserMINUS {
 			{
-				p.SetState(203)
+				p.SetState(184)
 				_la = p.GetTokenStream().LA(1)
 
 				if !(_la == YobufferParserPLUS || _la == YobufferParserMINUS) {
@@ -4365,7 +3786,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 
 		}
 		{
-			p.SetState(206)
+			p.SetState(187)
 			p.Match(YobufferParserFLOAT_VALUE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4376,7 +3797,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 	case 4:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(207)
+			p.SetState(188)
 			p.Match(YobufferParserSTRING_VALUE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4387,7 +3808,7 @@ func (p *YobufferParser) Constant() (localctx IConstantContext) {
 	case 5:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(208)
+			p.SetState(189)
 			p.Match(YobufferParserBOOL_VALUE)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4494,11 +3915,117 @@ func (s *EmptyStmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) EmptyStmt() (localctx IEmptyStmtContext) {
 	localctx = NewEmptyStmtContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 46, YobufferParserRULE_emptyStmt)
+	p.EnterRule(localctx, 36, YobufferParserRULE_emptyStmt)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(211)
+		p.SetState(192)
 		p.Match(YobufferParserEND)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// INameContext is an interface to support dynamic dispatch.
+type INameContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	IDENTIFIER() antlr.TerminalNode
+
+	// IsNameContext differentiates from other interfaces.
+	IsNameContext()
+}
+
+type NameContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyNameContext() *NameContext {
+	var p = new(NameContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = YobufferParserRULE_name
+	return p
+}
+
+func InitEmptyNameContext(p *NameContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = YobufferParserRULE_name
+}
+
+func (*NameContext) IsNameContext() {}
+
+func NewNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *NameContext {
+	var p = new(NameContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = YobufferParserRULE_name
+
+	return p
+}
+
+func (s *NameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *NameContext) IDENTIFIER() antlr.TerminalNode {
+	return s.GetToken(YobufferParserIDENTIFIER, 0)
+}
+
+func (s *NameContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NameContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *NameContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(YobufferListener); ok {
+		listenerT.EnterName(s)
+	}
+}
+
+func (s *NameContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(YobufferListener); ok {
+		listenerT.ExitName(s)
+	}
+}
+
+func (s *NameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case YobufferVisitor:
+		return t.VisitName(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *YobufferParser) Name() (localctx INameContext) {
+	localctx = NewNameContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 38, YobufferParserRULE_name)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(194)
+		p.Match(YobufferParserIDENTIFIER)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
@@ -4617,8 +4144,8 @@ func (s *IdentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Ident() (localctx IIdentContext) {
 	localctx = NewIdentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 48, YobufferParserRULE_ident)
-	p.SetState(215)
+	p.EnterRule(localctx, 40, YobufferParserRULE_ident)
+	p.SetState(198)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -4628,7 +4155,7 @@ func (p *YobufferParser) Ident() (localctx IIdentContext) {
 	case YobufferParserIDENTIFIER:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(213)
+			p.SetState(196)
 			p.Match(YobufferParserIDENTIFIER)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4639,7 +4166,7 @@ func (p *YobufferParser) Ident() (localctx IIdentContext) {
 	case YobufferParserIMPORT, YobufferParserPACKAGE, YobufferParserINT8, YobufferParserINT16, YobufferParserINT32, YobufferParserINT64, YobufferParserUINT8, YobufferParserUINT16, YobufferParserUINT32, YobufferParserUINT64, YobufferParserBOOL, YobufferParserSTRING, YobufferParserFLOAT32, YobufferParserFLOAT64, YobufferParserBYTES, YobufferParserMESSAGE, YobufferParserSERVICE, YobufferParserRPC, YobufferParserVOID:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(214)
+			p.SetState(197)
 			p.Keywords()
 		}
 
@@ -4791,15 +4318,15 @@ func (s *FullIdentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) FullIdent() (localctx IFullIdentContext) {
 	localctx = NewFullIdentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 50, YobufferParserRULE_fullIdent)
+	p.EnterRule(localctx, 42, YobufferParserRULE_fullIdent)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(217)
+		p.SetState(200)
 		p.Ident()
 	}
-	p.SetState(222)
+	p.SetState(205)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -4808,7 +4335,7 @@ func (p *YobufferParser) FullIdent() (localctx IFullIdentContext) {
 
 	for _la == YobufferParserDOT {
 		{
-			p.SetState(218)
+			p.SetState(201)
 			p.Match(YobufferParserDOT)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -4816,11 +4343,11 @@ func (p *YobufferParser) FullIdent() (localctx IFullIdentContext) {
 			}
 		}
 		{
-			p.SetState(219)
+			p.SetState(202)
 			p.Ident()
 		}
 
-		p.SetState(224)
+		p.SetState(207)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -5013,15 +4540,15 @@ func (s *KeywordsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *YobufferParser) Keywords() (localctx IKeywordsContext) {
 	localctx = NewKeywordsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 52, YobufferParserRULE_keywords)
+	p.EnterRule(localctx, 44, YobufferParserRULE_keywords)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(225)
+		p.SetState(208)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&5242876) != 0) {
+		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&10485752) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)

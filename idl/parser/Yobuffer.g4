@@ -2,11 +2,11 @@ grammar Yobuffer;
 
 
 // Schema
-schema: packageStmt? (importStmt | meta | message | service)*;
+schema: packageStmt importStmt? (message | struct | service)*;
 
 
 // Package
-packageStmt: PACKAGE fullIdent END;
+packageStmt: PACKAGE name END;
 
 
 // Import
@@ -14,14 +14,12 @@ importStmt: IMPORT STRING_VALUE END;
 
 
 // Meta
-meta : AT META LC metaElement* RC END;
-metaName: ident;
-metaElement : metaName EQ constant END;
+meta : AT META LC metaElement* RC;
+metaElement : name EQ constant END;
 
 
 // Field
-field: (meta)? fieldType fieldName EQ fieldTag END;
-fieldName: ident;
+field: name COLON fieldType EQ fieldTag;
 fieldTag: INT_VALUE;
 
 // field types
@@ -42,28 +40,22 @@ fieldType
 
 
 // Message
-message: MESSAGE messageName LC messageElement* RC;
-messageName: ident;
+message: MESSAGE name LC messageElement* RC;
 messageElement: field | message;
-messageType: ( DOT )? ( ident DOT )* messageName;
+messageType: ( DOT )? ( ident DOT )* name;
 
 
 // Struct
-struct: STRUCT structName LC structElement* RC;
-structName: ident;
+struct: STRUCT name LC structElement* RC;
 structElement: field | struct;
-// structField: (meta)? fieldType fieldName EQ fieldTag END;
-// structFieldName: ident;
-// structFieldTag: INT_VALUE;
 
 
 // Service
-service: SERVICE serviceName LC serviceElement* RC;
-serviceName: ident;
+service: SERVICE name LC serviceElement* RC;
 serviceElement : rpc | emptyStmt;
-rpc: RPC rpcName LP messageType RP COLON (messageType | VOID) END;
-rpcName: ident;
+rpc: RPC name LP (field)?  RP '->' (messageType | VOID) END;
 
+rpcField: name EQ fieldTag END;
 
 // lexical
 constant
@@ -77,6 +69,7 @@ constant
 emptyStmt: END;
 
 
+name: IDENTIFIER;
 // Lexical elements
 ident: IDENTIFIER | keywords;
 fullIdent: ident ( DOT ident )*;
@@ -104,6 +97,8 @@ keywords
   | RPC
   // | STREAM
   | VOID
+  // | MAP
+  // | LIST
   ;
 
 META: 'meta';
@@ -128,6 +123,8 @@ RPC: 'rpc';
 STREAM: 'stream';
 STRUCT: 'struct';
 VOID: 'void';
+MAP: 'map';
+LIST: 'list';
 
 
 // Symbols
@@ -148,7 +145,7 @@ COLON: ':';
 PLUS: '+';
 MINUS: '-';
 
-
+NEWLINE:  [\r\n]+;
 STRING_VALUE: ( '\'' ( CHAR_VALUE )* '\'' ) |  ( '"' ( CHAR_VALUE )* '"' );
 fragment CHAR_VALUE: HEX_ESCAPE | OCT_ESCAPE | CHAR_ESCAPE | ~[\u0000\n\\];
 fragment HEX_ESCAPE: '\\' ( 'x' | 'X' ) HEX_DIGIT HEX_DIGIT;
@@ -177,3 +174,4 @@ fragment HEX_DIGIT: [0-9A-Fa-f];
 WHITESPACE:   [ \t\r\n\u000C]+ -> skip;
 COMMENT: '//' ~[\r\n]* -> channel(HIDDEN);
 
+// ONE_LINE: ~[\r\n];
